@@ -9,4 +9,4 @@ Pyrin tässä harjoitustyössä luomaan kevyen, kaksiuloitteisen videopelin **py
 ## Linkit
 
 - [Laskarit-hakemisto](https://github.com/lapatinn/ot-harjoitustyo/tree/main/laskarit)
-- [Vaatimusmäärittely](https://github.com/lapatinn/ot-harjoitustyo/edit/main/dokumentaatio/vaatimusmaarittely.md)
+- [Vaatimusmäärittely](https://github.com/lapatinn/ot-harjoitustyo/blob/main/dokumentaatio/vaatimusmaarittely.md)
