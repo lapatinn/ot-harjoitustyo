@@ -1,5 +1,5 @@
 sequenceDiagram
-    main->>laitehallinto:  
-    main->>rautatietori
-    main->>ratikka6
-    main->>bussi244
+    Alice->>John: Hello John, how are you?
+    John-->>Alice: Great!
+    Alice-)John: See you later!
+
