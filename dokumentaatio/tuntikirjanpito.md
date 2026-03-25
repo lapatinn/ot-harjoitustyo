@@ -3,4 +3,5 @@
 | Päivä | Aika (h) | Mitä tein  |
 | :----:|:-----| :-----|
 | 18.3 | 1    | Vaatimusmäärittely, työaikakirjanpito |
-| Yhteensä   | 1   | | 
+| 25.3 | 3    | Projektin aloitus, pygame-säätöä, ensimmäinen testi, invoke |
+| Yhteensä   | 4   | | 
