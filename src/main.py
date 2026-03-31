@@ -1,6 +1,6 @@
 import pygame
 from pygame.locals import *
-from config import *
+from config import PLAY_FONT, SCREEN_HEIGHT, SCREEN_WIDTH, FPS, WELCOME_COLOR, WELCOME_FONT, PLAY_COLOR
 from player import Player
 from platforms import Platform, Floor
 
@@ -62,9 +62,9 @@ def main(window):
 
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
-                run = False
+                menu = False
                 break
-            elif event.type == pygame.MOUSEBUTTONDOWN:
+            if event.type == pygame.MOUSEBUTTONDOWN:
                 if event.button == 1:
                     if play_rect.collidepoint(event.pos):
                         print("PLAY pressed")

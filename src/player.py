@@ -1,6 +1,6 @@
 import pygame
 from pygame.locals import *
-from config import *
+from config import SCREEN_WIDTH, SCREEN_HEIGHT, ACC, FRIC, JUMP_FORCE
 
 pygame.init()
 vec = pygame.math.Vector2
@@ -32,10 +32,8 @@ class Player(pygame.sprite.Sprite):
         self.vel += self.acc
         self.pos += self.vel + 0.5 * self.acc
 
-        if self.pos.x < 0:
-            self.pos.x = 0
-        if self.pos.x > SCREEN_WIDTH:
-            self.pos.x = SCREEN_WIDTH
+        self.pos.x = max(self.pos.x, 0)
+        self.pos.x = min(self.pos.x, SCREEN_WIDTH)
 
         self.rect.midbottom = self.pos
         self.dir = None
