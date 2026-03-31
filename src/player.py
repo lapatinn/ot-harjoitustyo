@@ -16,14 +16,14 @@ class Player(pygame.sprite.Sprite):
         self.vel = vec(0,0)
         self.acc = vec(0,0)
 
+        self.dir = None
+
     def move(self):
         self.acc = vec(0,0.5)
-        pressed_keys = pygame.key.get_pressed()
 
-        # siirrä pelisilmukkaan näppäinten painallusten lukeminen
-        if pressed_keys[K_a]:
+        if self.dir == "left":
             self.acc.x = -ACC
-        if pressed_keys[K_d]:
+        if self.dir == "right":
             self.acc.x = ACC
 
         self.acc.x += self.vel.x * FRIC
@@ -36,6 +36,7 @@ class Player(pygame.sprite.Sprite):
             self.pos.x = SCREEN_WIDTH
 
         self.rect.midbottom = self.pos
+        self.dir = None
 
     def check_floor_collision(self, group):
         collisions = pygame.sprite.spritecollide(self, group, False)

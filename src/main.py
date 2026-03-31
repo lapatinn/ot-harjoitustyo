@@ -79,7 +79,14 @@ def main(window):
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_SPACE:
                     player.jump(platforms)
-        
+
+        pressed_keys = pygame.key.get_pressed()
+
+        if pressed_keys[K_a]:
+            player.dir = "left"
+        if pressed_keys[K_d]:
+            player.dir = "right"
+
         player.move()
         player.check_floor_collision(platforms)
 
