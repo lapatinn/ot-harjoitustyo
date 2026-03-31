@@ -25,3 +25,5 @@
 - Testattu Player-luokkaa
     - Luominen, liikkuminen
     - Hahmo ei liiku ikkunan rajojen yli
+- Peliä testattu cubbli-virtuaalityöasemalla
+    - Toimiihan se
