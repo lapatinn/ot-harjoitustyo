@@ -4,12 +4,15 @@ from config import *
 
 pygame.init()
 
+
 class Floor(pygame.sprite.Sprite):
     def __init__(self):
         super().__init__()
         self.surface = pygame.Surface((SCREEN_WIDTH, 50))
-        self.surface.fill((255,0,0))
-        self.rect = self.surface.get_rect(center=(SCREEN_WIDTH//2, SCREEN_HEIGHT))
+        self.surface.fill((255, 0, 0))
+        self.rect = self.surface.get_rect(
+            center=(SCREEN_WIDTH//2, SCREEN_HEIGHT))
+
 
 class Platform(pygame.sprite.Sprite):
     def __init__(self, width, height, x, y, color):

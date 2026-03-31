@@ -5,21 +5,23 @@ from config import *
 pygame.init()
 vec = pygame.math.Vector2
 
+
 class Player(pygame.sprite.Sprite):
     def __init__(self):
         super().__init__()
         self.surface = pygame.Surface((30, 30))
-        self.surface.fill((0,255,0))
-        self.rect = self.surface.get_rect(center=(SCREEN_WIDTH//2, SCREEN_HEIGHT - 50))
+        self.surface.fill((0, 255, 0))
+        self.rect = self.surface.get_rect(
+            center=(SCREEN_WIDTH//2, SCREEN_HEIGHT - 50))
 
         self.pos = vec((SCREEN_WIDTH//2, 0))
-        self.vel = vec(0,0)
-        self.acc = vec(0,0)
+        self.vel = vec(0, 0)
+        self.acc = vec(0, 0)
 
         self.dir = None
 
     def move(self):
-        self.acc = vec(0,0.5)
+        self.acc = vec(0, 0.5)
 
         if self.dir == "left":
             self.acc.x = -ACC
