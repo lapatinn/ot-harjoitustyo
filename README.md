@@ -4,7 +4,7 @@ Aineopintojen harjoitustyö, ohjelmistotekniikka
 
 ## 2D videopeli pygame-kirjastolla.
 
-Pyrin tässä harjoitustyössä luomaan kevyen, kaksiuloitteisen videopelin **pygame-kirjastolla**. Peli voisi olla vaikka aluksi yksin pelattava *tasohyppely*, jonka vaikeustaso kasvaa pelaajan edetessä. Saatan lisätä myöhemmin myös kaksinpelin tai jonkin muun vaihtoehtoisen pelimuodon. Voi toki olla, etten tee peliä laisinkaan, mikäli keksin paremman idean.
+Yksinkertainen tasohyppelypeli **pygame-kirjastolla**, jossa pieni vihreä ukkeli seikkailee avaruudessa. Tarkoituksena on hyppiä platformien päällä putoamatta *loputtomaan tyhjyyteen* ja kerätä mahdollisimman paljon kolikoita. Pelaajalla on aluksi tietty määrä elämiä, jotka vähenevät törmätessä vihollisiin. Pelaaja voi voittaa pelin pääsemällä kentän loppuun. Pelin vaikeustason kehityksen toteutus on vielä toistaiseksi epäselvää.
 
 ## Linkit
 
