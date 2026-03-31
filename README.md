@@ -11,3 +11,4 @@ Pyrin tässä harjoitustyössä luomaan kevyen, kaksiuloitteisen videopelin **py
 - [Vaatimusmäärittely](https://github.com/lapatinn/ot-harjoitustyo/blob/main/dokumentaatio/vaatimusmaarittely.md)
 - [Työaikakirjanpito](https://github.com/lapatinn/ot-harjoitustyo/blob/main/dokumentaatio/tuntikirjanpito.md)
 - [Changelog](https://github.com/lapatinn/ot-harjoitustyo/blob/main/dokumentaatio/changelog.md)
+- [Arkkitehtuuri](https://github.com/lapatinn/ot-harjoitustyo/blob/main/dokumentaatio/arkkitehtuuri.md)
