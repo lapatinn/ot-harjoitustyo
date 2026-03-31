@@ -17,4 +17,11 @@
     - Vihreä ukko
 - Piirretty ja lisätty platformi
     - Kuun pinta?
-- Lisätty ja konfiguroitu py
+- Lisätty ja konfiguroitu pylint
+    - Käytössä kurssimateriaalin rc-tiedosto, johon on lisätty pygame-moduulin ignoroiva rivi
+    - Herjaa edelleen pygame.locals muuttujista, korjaaaan
+- Lisätty autopep8
+- Lisätty taskit lintille ja formatoinnille
+- Testattu Player-luokkaa
+    - Luominen, liikkuminen
+    - Hahmo ei liiku ikkunan rajojen yli
