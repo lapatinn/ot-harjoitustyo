@@ -8,3 +8,13 @@
 - Alkunäytöltä voi aloittaa pelin
 - Ensimmäisellä tasolla on pelaaja (toistaiseksi neliö), joka voi liikkua ja hyppiä
 - Ensimmäisellä tasolla on lattia ja kaksi tasoa, joiden päällä pelaaja voi seistä
+
+# Viikko 4
+
+- Näppäinten painallusten valvonta siirretty pääohjelmaan
+    - Ollut aikaisemmin Player-luokassa
+- Piirretty ja lisätty pelaajahahmo
+    - Vihreä ukko
+- Piirretty ja lisätty platformi
+    - Kuun pinta?
+- Lisätty ja konfiguroitu py
