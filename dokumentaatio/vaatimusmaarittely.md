@@ -10,9 +10,9 @@ Sovelluksella on lähtökohtaisesti yksi käyttäjä, eli yksi pelaaja. Kahden p
 
 ## Perusversion tarjoama toiminnallisuus
 
-- Käyttäjä voi käynnistää sovelluksen, jolloin peli-ikkuna aukeaa
-  - Peli alkaa aloitusnäytöstä, jossa käyttäjä voi (esimerkiksi) valita pelimuodon ja aloittaa pelin
-- Käyttäjä voi aloittaa pelin
+- Käyttäjä voi käynnistää sovelluksen, jolloin peli-ikkuna aukeaa TEHTY
+  - Peli alkaa aloitusnäytöstä, jossa käyttäjä voi (esimerkiksi) valita pelimuodon ja aloittaa pelin TEHTY
+- Käyttäjä voi aloittaa pelin TEHTY
 - Käyttäjällä on rajoitettu määrä "elämiä", joiden loppuessa peli päättyy
   - Elämät vähenevät yksi kerrallaan, (esimerkiksi) kun käyttäjä tekee kontaktia vihollisen kanssa
   - Elämiä voi kerätä lisää
