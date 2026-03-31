@@ -15,14 +15,10 @@ class Floor(pygame.sprite.Sprite):
 
 
 class Platform(pygame.sprite.Sprite):
-    def __init__(self, width, height, x, y, color):
+    def __init__(self, pos_x, pos_y):
         super().__init__()
-        self.width = width
-        self.height = height
-        self.x = x
-        self.y = y
-        self.color = color
+        self.pos_x = pos_x
+        self.pos_y = pos_y
 
-        self.surface = pygame.surface.Surface((self.width, self.height))
-        self.surface.fill(color)
-        self.rect = self.surface.get_rect(center=(self.x, self.y))
+        self.surface = pygame.image.load("src/sprites/platform.png")
+        self.rect = self.surface.get_rect(center=(self.pos_x, self.pos_y))

@@ -17,9 +17,9 @@ window = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 
 player = Player()
 floor = Floor()
-platform1 = Platform(100, 25, SCREEN_WIDTH//2, SCREEN_HEIGHT//2, (0, 0, 255))
-platform2 = Platform(100, 25, SCREEN_WIDTH//3,
-                     SCREEN_HEIGHT//2 + 100, (125, 125, 0))
+platform1 = Platform(SCREEN_WIDTH//2, SCREEN_HEIGHT//2)
+platform2 = Platform(SCREEN_WIDTH//3,
+                     SCREEN_HEIGHT//2 + 100)
 
 all_sprites = pygame.sprite.Group()
 all_sprites.add(player)
