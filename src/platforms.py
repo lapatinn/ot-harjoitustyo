@@ -20,5 +20,5 @@ class Platform(pygame.sprite.Sprite):
         self.pos_x = pos_x
         self.pos_y = pos_y
 
-        self.surface = pygame.image.load("src/sprites/platform.png")
+        self.surface = pygame.image.load("src/assets/platform.bmp")
         self.rect = self.surface.get_rect(center=(self.pos_x, self.pos_y))

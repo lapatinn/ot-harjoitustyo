@@ -9,7 +9,7 @@ vec = pygame.math.Vector2
 class Player(pygame.sprite.Sprite):
     def __init__(self):
         super().__init__()
-        self.surface = pygame.image.load("src/sprites/player.png")
+        self.surface = pygame.image.load("src/assets/player.bmp")
         self.rect = self.surface.get_rect(
             center=(SCREEN_WIDTH//2, SCREEN_HEIGHT - 50))
 
