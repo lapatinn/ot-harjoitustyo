@@ -44,7 +44,6 @@ class Player(pygame.sprite.Sprite):
             self.vel.y = 0
             self.surface = pygame.image.load("src/assets/player.bmp")
 
-
     def jump(self, group):
         collisions = pygame.sprite.spritecollide(self, group, False)
         if collisions:
