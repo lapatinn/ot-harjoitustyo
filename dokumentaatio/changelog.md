@@ -11,10 +11,11 @@
 
 # Viikko 4
 
-- Näppäinten painallusten valvonta siirretty pääohjelmaan
-    - Ollut aikaisemmin Player-luokassa
+- Näppäinten painallusten valvonta siirretty omaan luokkaan
+    - Ollut aikaisemmin Player-luokassa, sen jälkeen pääohjelmassa
 - Piirretty ja lisätty pelaajahahmo
     - Vihreä ukko
+    - Uusi hahmo-assetti joka vaihtuu kun pelaaja hyppää
 - Piirretty ja lisätty platformi
     - Kuun pinta?
 - Lisätty ja konfiguroitu pylint
@@ -27,3 +28,8 @@
     - Hahmo ei liiku ikkunan rajojen yli
 - Peliä testattu cubbli-virtuaalityöasemalla
     - Toimiihan se
+- Hyppimistä paranneltu
+    - Välilyönti pohjassa = pitkä hyppy
+- Törmäämisen tunnistamista parannettu hieman
+    - Pelaaja pääsee platformin päälle vain jos hän ylittää sen yläreunan
+    - Platfromin alareuna ei kuitenkaan toimi vielä kattona (yllättävän mutkikasta on ollut selvittää tämä)
