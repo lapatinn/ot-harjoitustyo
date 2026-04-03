@@ -3,7 +3,7 @@ from pygame.locals import *
 from config import PLAY_FONT, SCREEN_HEIGHT, SCREEN_WIDTH, FPS, WELCOME_COLOR, WELCOME_FONT, PLAY_COLOR
 from player import Player
 from platforms import Platform, Floor
-from event_handler import GameEventHandler, MenuEventHandler
+from event_handler import GameEventHandler
 
 pygame.init()
 vec = pygame.math.Vector2
@@ -63,7 +63,7 @@ def main(window):
 
         button_color = WELCOME_COLOR if is_hovering else PLAY_COLOR
 
-        play_rect = draw_text(button_text, PLAY_FONT,
+        play_button_rect = draw_text(button_text, PLAY_FONT,
                               button_color, button_x, button_y)
 
         for event in pygame.event.get():
@@ -72,7 +72,7 @@ def main(window):
                 break
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if event.button == 1:
-                    if play_rect.collidepoint(event.pos):
+                    if play_button_rect.collidepoint(event.pos):
                         menu = False
                         game = True
 
