@@ -3,6 +3,7 @@ from pygame.locals import *
 from config import PLAY_FONT, SCREEN_HEIGHT, SCREEN_WIDTH, FPS, WELCOME_COLOR, WELCOME_FONT, PLAY_COLOR
 from player import Player
 from platforms import Platform, Floor
+from event_handler import GameEventHandler, MenuEventHandler
 
 pygame.init()
 vec = pygame.math.Vector2
@@ -20,7 +21,7 @@ floor = Floor()
 platform1 = Platform(SCREEN_WIDTH//2, SCREEN_HEIGHT//2)
 platform2 = Platform(SCREEN_WIDTH//3,
                      SCREEN_HEIGHT//2 + 100)
-platform3 = Platform(SCREEN_WIDTH//4, 
+platform3 = Platform(SCREEN_WIDTH//4,
                      SCREEN_HEIGHT//2 + 200)
 
 all_sprites = pygame.sprite.Group()
@@ -36,6 +37,7 @@ platforms.add(platform1)
 platforms.add(platform2)
 platforms.add(platform3)
 
+game_events = GameEventHandler(player, platforms)
 
 def draw_text(text, font, text_color, x, y):
     img = font.render(text, True, text_color)
@@ -71,7 +73,6 @@ def main(window):
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if event.button == 1:
                     if play_rect.collidepoint(event.pos):
-                        print("PLAY pressed")
                         menu = False
                         game = True
 
@@ -81,23 +82,7 @@ def main(window):
         clock.tick(FPS)
         window.fill((0, 0, 40))
 
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                game = False
-                break
-            if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_SPACE:
-                    player.jump(platforms)
-            if event.type == pygame.KEYUP:
-                if event.key == pygame.K_SPACE:
-                    player.cancel_jump()
-
-        pressed_keys = pygame.key.get_pressed()
-
-        if pressed_keys[K_a]:
-            player.dir = "left"
-        if pressed_keys[K_d]:
-            player.dir = "right"
+        game_events.handle_events()
 
         player.move()
         player.check_floor_collision(platforms)

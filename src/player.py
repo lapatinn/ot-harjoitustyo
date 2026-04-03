@@ -17,16 +17,18 @@ class Player(pygame.sprite.Sprite):
         self.vel = vec(0, 0)
         self.acc = vec(0, 0)
 
-        self.dir = None
         self.jumping = False
+
+        self.moveleft = False
+        self.moveright = False
 
     def move(self):
         self.acc = vec(0, 0.5)
 
-        if self.dir == "left":
-            self.acc.x = -ACC
-        if self.dir == "right":
+        if self.moveright:
             self.acc.x = ACC
+        if self.moveleft:
+            self.acc.x = -ACC
 
         self.acc.x += self.vel.x * FRIC
         self.vel += self.acc
@@ -36,7 +38,6 @@ class Player(pygame.sprite.Sprite):
         self.pos.x = min(self.pos.x, SCREEN_WIDTH)
 
         self.rect.midbottom = self.pos
-        self.dir = None
 
     def check_floor_collision(self, group):
         collisions = pygame.sprite.spritecollide(self, group, False)
@@ -48,8 +49,6 @@ class Player(pygame.sprite.Sprite):
                     self.vel.y = 0
                     self.jumping = False
                     self.surface = pygame.image.load("src/assets/player.bmp")
-                    
-
 
     def jump(self, group):
         collisions = pygame.sprite.spritecollide(self, group, False)
@@ -62,3 +61,13 @@ class Player(pygame.sprite.Sprite):
         if self.jumping:
             if self.vel.y < -3:
                 self.vel.y = -3
+
+    def change_direction(self, dir):
+        if dir == "left":
+            self.moveleft = True
+        if dir == "right":
+            self.moveright = True
+        if dir == "cancel_right":
+            self.moveright = False
+        if dir == "cancel_left":
+            self.moveleft = False
