@@ -2,8 +2,10 @@
 
 | Päivä | Aika (h) | Mitä tein  |
 | :----:|:-----| :-----|
-| 18.3 | 1    | Vaatimusmäärittely, työaikakirjanpito |
-| 25.3 | 3    | Projektin aloitus, pygame-säätöä, ensimmäinen testi, invoke |
-| 26.3 | 4    | Refaktorointia, pelaaja, ensimmäinen "tason" kaavailua, pelaajan liike, painovoima, törmääminen, hyppiminen |
-| 31.3 | 3    | Refaktorointia, tekstuurit pelaajalle ja platformille, pylint, autopep8, Player-luokan testit |
-| Yhteensä   | 12   | | 
+| 18.03 | 1    | Vaatimusmäärittely, työaikakirjanpito |
+| 25.03 | 3    | Projektin aloitus, pygame-säätöä, ensimmäinen testi, invoke |
+| 26.03 | 4    | Refaktorointia, pelaaja, ensimmäinen "tason" kaavailua, pelaajan liike, painovoima, törmääminen, hyppiminen |
+| 31.03 | 3    | Refaktorointia, tekstuurit pelaajalle ja platformille, pylint, autopep8, Player-luokan testit |
+| 02.04 | 0.5  | Vaihtoehtoinen pelaajahahmo, aktivoituu kun pelaaja hyppää |
+| 03.04 | 2    | Hyppimisen parantelu, törmäämisen parantelu, näppäinten painallusten valvonta omaan luokkaan|
+| Yhteensä   | 13.5   | | 
