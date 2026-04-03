@@ -18,6 +18,7 @@ class Player(pygame.sprite.Sprite):
         self.acc = vec(0, 0)
 
         self.dir = None
+        self.jumping = False
 
     def move(self):
         self.acc = vec(0, 0.5)
@@ -39,13 +40,25 @@ class Player(pygame.sprite.Sprite):
 
     def check_floor_collision(self, group):
         collisions = pygame.sprite.spritecollide(self, group, False)
-        if collisions:
-            self.pos.y = collisions[0].rect.top + 1
-            self.vel.y = 0
-            self.surface = pygame.image.load("src/assets/player.bmp")
+
+        if self.vel.y > 0:
+            if collisions:
+                if self.pos.y < collisions[0].rect.bottom:
+                    self.pos.y = collisions[0].rect.top + 1
+                    self.vel.y = 0
+                    self.jumping = False
+                    self.surface = pygame.image.load("src/assets/player.bmp")
+                    
+
 
     def jump(self, group):
         collisions = pygame.sprite.spritecollide(self, group, False)
-        if collisions:
+        if collisions and not self.jumping:
+            self.jumping = True
             self.vel.y = -JUMP_FORCE
             self.surface = pygame.image.load("src/assets/player2.bmp")
+
+    def cancel_jump(self):
+        if self.jumping:
+            if self.vel.y < -3:
+                self.vel.y = -3

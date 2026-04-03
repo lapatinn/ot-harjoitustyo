@@ -20,17 +20,21 @@ floor = Floor()
 platform1 = Platform(SCREEN_WIDTH//2, SCREEN_HEIGHT//2)
 platform2 = Platform(SCREEN_WIDTH//3,
                      SCREEN_HEIGHT//2 + 100)
+platform3 = Platform(SCREEN_WIDTH//4, 
+                     SCREEN_HEIGHT//2 + 200)
 
 all_sprites = pygame.sprite.Group()
 all_sprites.add(player)
 all_sprites.add(floor)
 all_sprites.add(platform1)
 all_sprites.add(platform2)
+all_sprites.add(platform3)
 
 platforms = pygame.sprite.Group()
 platforms.add(floor)
 platforms.add(platform1)
 platforms.add(platform2)
+platforms.add(platform3)
 
 
 def draw_text(text, font, text_color, x, y):
@@ -84,6 +88,9 @@ def main(window):
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_SPACE:
                     player.jump(platforms)
+            if event.type == pygame.KEYUP:
+                if event.key == pygame.K_SPACE:
+                    player.cancel_jump()
 
         pressed_keys = pygame.key.get_pressed()
 
