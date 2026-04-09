@@ -21,11 +21,10 @@ class Level:
         self.platforms.add(self.floor)
 
     def generate(self):
-        platform_data = [{"plat_x": 100, "plat_y": 100}, 
-                         {"plat_x": 200, "plat_y": 200},
-                         {"plat_x": 300, "plat_y": 300}
-                         ]
-        for dict in platform_data:
+        f = open("src/levels/level_1.json")
+        plat_data = json.load(f)
+
+        for dict in plat_data["platforms"]:
             x = dict["plat_x"]
             y = dict["plat_y"]
 
