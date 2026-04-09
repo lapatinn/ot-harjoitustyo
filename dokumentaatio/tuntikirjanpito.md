@@ -8,4 +8,5 @@
 | 31.03 | 3    | Refaktorointia, tekstuurit pelaajalle ja platformille, pylint, autopep8, Player-luokan testit |
 | 02.04 | 0.5  | Vaihtoehtoinen pelaajahahmo, aktivoituu kun pelaaja hyppää |
 | 03.04 | 2    | Hyppimisen parantelu, törmäämisen parantelu, näppäinten painallusten valvonta omaan luokkaan|
-| Yhteensä   | 13.5   | | 
+| 09.04 | 3,5  | Pelaajan testien korjailu, level-moduuli tasojen lataamista varten, json-tiedostot tasojen datalle, tasojen datan lukeminen json-tiedostosta |
+| Yhteensä   | 17   | | 
