@@ -11,12 +11,12 @@ class TestPlayer(unittest.TestCase):
         self.assertIsInstance(self.player, Player)
 
     def test_move_left_changes_direction(self):
-        self.player.dir = "left"
+        self.player.change_direction("left")
         self.player.move()
         self.assertEqual(self.player.acc.x, -ACC)
 
     def test_move_right_changes_direction(self):
-        self.player.dir = "right"
+        self.player.change_direction("right")
         self.player.move()
         self.assertEqual(self.player.acc.x, ACC)
 
