@@ -33,3 +33,8 @@
 - Törmäämisen tunnistamista parannettu hieman
     - Pelaaja pääsee platformin päälle vain jos hän ylittää sen yläreunan
     - Platfromin alareuna ei kuitenkaan toimi vielä kattona (yllättävän mutkikasta on ollut selvittää tämä)
+- Vaihtoehtoinen pelaaja-asset
+    - Aktivoituu kun pelaaja hyppää, deaktivoituu kun pelaaja laskeutuu
+- Selkäranka pelin etenemiselle
+  - Tasojen data (platformien sijainti, kolikon sijainti) luetaan json tiedostosta
+  - Level-luokka alustetaan jokaista tasoa varten tason järjestysnumerolla
