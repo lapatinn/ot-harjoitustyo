@@ -5,7 +5,8 @@ from sprites.platforms import Platform, Floor
 
 
 class Level:
-    def __init__(self):
+    def __init__(self, level_id=int):
+        self.level_id = level_id
         self.player = Player()
         self.floor = Floor()
         self.platforms = pygame.sprite.Group()
@@ -18,8 +19,8 @@ class Level:
 
         self.platforms.add(self.floor)
 
-    def generate(self, level_id=int):
-        level_data = self.get_level_data(level_id)
+    def generate(self):
+        level_data = self.get_level_data(self.level_id)
 
         for dict in level_data["platforms"]:
             x = dict["plat_x"]
