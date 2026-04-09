@@ -1,9 +1,7 @@
 import pygame
 import json
-from random import randint
 from sprites.player import Player
 from sprites.platforms import Platform, Floor
-from config import SCREEN_HEIGHT, SCREEN_WIDTH
 
 
 class Level:
