@@ -1,8 +1,8 @@
 import pygame
 from pygame.locals import *
 from config import PLAY_FONT, SCREEN_HEIGHT, SCREEN_WIDTH, FPS, WELCOME_COLOR, WELCOME_FONT, PLAY_COLOR
-from player import Player
-from platforms import Platform, Floor
+from sprites.player import Player
+from sprites.platforms import Platform, Floor
 from event_handler import GameEventHandler
 
 pygame.init()

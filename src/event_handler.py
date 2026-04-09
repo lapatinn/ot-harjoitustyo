@@ -1,5 +1,5 @@
 import pygame
-from player import Player
+from sprites.player import Player
 
 class GameEventHandler:
     def __init__(self, player=Player, platforms=pygame.sprite.Group):

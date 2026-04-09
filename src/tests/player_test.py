@@ -1,5 +1,5 @@
 import unittest
-from player import Player
+from sprites.player import Player
 from config import ACC, SCREEN_WIDTH
 
 
