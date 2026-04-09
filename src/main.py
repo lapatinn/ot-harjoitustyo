@@ -16,7 +16,7 @@ button_y = 200
 window = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 
 level = Level()
-level.generate()
+level.generate(1)
 all_sprites, platforms = level.get_groups()
 
 game_events = GameEventHandler(level.player, level.platforms)
