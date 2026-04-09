@@ -4,6 +4,7 @@ from config import PLAY_FONT, SCREEN_HEIGHT, SCREEN_WIDTH, FPS, WELCOME_COLOR, W
 from sprites.player import Player
 from sprites.platforms import Platform, Floor
 from event_handler import GameEventHandler
+from level import Level
 
 pygame.init()
 vec = pygame.math.Vector2
@@ -16,28 +17,12 @@ button_y = 200
 
 window = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 
-player = Player()
-floor = Floor()
-platform1 = Platform(SCREEN_WIDTH//2, SCREEN_HEIGHT//2)
-platform2 = Platform(SCREEN_WIDTH//3,
-                     SCREEN_HEIGHT//2 + 100)
-platform3 = Platform(SCREEN_WIDTH//4,
-                     SCREEN_HEIGHT//2 + 200)
+level = Level()
+level.generate()
+all_sprites, platforms = level.get_groups()
 
-all_sprites = pygame.sprite.Group()
-all_sprites.add(player)
-all_sprites.add(floor)
-all_sprites.add(platform1)
-all_sprites.add(platform2)
-all_sprites.add(platform3)
+game_events = GameEventHandler(level.player, level.platforms)
 
-platforms = pygame.sprite.Group()
-platforms.add(floor)
-platforms.add(platform1)
-platforms.add(platform2)
-platforms.add(platform3)
-
-game_events = GameEventHandler(player, platforms)
 
 def draw_text(text, font, text_color, x, y):
     img = font.render(text, True, text_color)
@@ -64,7 +49,7 @@ def main(window):
         button_color = WELCOME_COLOR if is_hovering else PLAY_COLOR
 
         play_button_rect = draw_text(button_text, PLAY_FONT,
-                              button_color, button_x, button_y)
+                                     button_color, button_x, button_y)
 
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -84,8 +69,8 @@ def main(window):
 
         game_events.handle_events()
 
-        player.move()
-        player.check_floor_collision(platforms)
+        level.player.move()
+        level.player.check_floor_collision(platforms)
 
         for entity in all_sprites:
             window.blit(entity.surface, entity.rect)
