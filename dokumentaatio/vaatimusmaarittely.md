@@ -2,19 +2,34 @@
 
 ## Sovelluksen tarkoitus
 
-Sovellus on videopeli, jota on tarkoitus pelata. Käyttäjä etenee pelissä väistämällä esteitä ja keräämällä kolikoita. 
+Sovellus on videopeli, jota on tarkoitus pelata. Käyttäjä etenee pelissä väistämällä vihollista, hyppimällä leijuvilla alustoilla ja keräämällä kolikoita. 
 
 ## Käyttäjät
 
-Sovelluksella on lähtökohtaisesti yksi käyttäjä, eli yksi pelaaja. Kahden pelaajan pelimuoto saatetaan lisätä myöhemmin, jos aikaa riittää. Toisella pelaajalla olisi samat toiminnot kuin ensimmäisellä. 
+Sovelluksella on lähtökohtaisesti yksi käyttäjä, eli yksi pelaaja.
 
 ## Perusversion tarjoama toiminnallisuus
 
 - Käyttäjä voi käynnistää sovelluksen, jolloin peli-ikkuna aukeaa TEHTY
-  - Peli alkaa aloitusnäytöstä, jossa käyttäjä voi (esimerkiksi) valita pelimuodon ja aloittaa pelin TEHTY
+  - Peli alkaa aloitusnäytöstä, jossa käyttäjä voi aloittaa pelin TEHTY
 - Käyttäjä voi aloittaa pelin TEHTY
+
+- Käyttäjä voi liikkua ja hyppiä
+  - A ja D näppäimet liikuttavat pelaajaa vasemmalle / oikealle TEHTY
+  - Välilyönti saa pelaajan hyppäämään TEHTY
+    - Lyhyt painallus = lyhyt hyppy, pitkä painallus = pitkä hyppy TEHTY
+- Pelissä on painovoima, jonka vuoksi pelaaja seisoo alustoilla ja putoaa alaspäin TEHTY
+  -  Alustojen välillä voi hyppiä TEHTY
+  -  Alustan alareunaan törmää, mikä estää pääsemästä sen päälle suoraan alapuolelta
+-  Käyttäjä pääsee seuraavalle tasolle päästyään kentän maaliin asti
+  - Maali on ovi / portaali, joka sijaitsee jossakin hankalasti tavoitettavassa paikassa
+  - Maaliin pääseminen lataa seuraavan kentän
+  - Kentät muuttuvat vaikeammiksi
+    - Enemmän vihollisia?
+    - Vaikeammat hypyt?
+
 - Käyttäjällä on rajoitettu määrä "elämiä", joiden loppuessa peli päättyy
-  - Elämät vähenevät yksi kerrallaan, (esimerkiksi) kun käyttäjä tekee kontaktia vihollisen kanssa
+  - Elämät vähenevät yksi kerrallaan,  kun käyttäjä tekee kontaktia vihollisen kanssa
   - Elämiä voi kerätä lisää
   - Käyttäjä voi yrittää peliä uudelleen
 - Käyttäjä voi voittaa pelin, eli päästä maaliin asti
@@ -22,11 +37,6 @@ Sovelluksella on lähtökohtaisesti yksi käyttäjä, eli yksi pelaaja. Kahden p
  
 ## Jatkokehitysideoita
 
-- Kaksinpelimuoto
-  - Kaksi pelaajaa seikkailevat samanaikaisesti
-  - Yhteiset kolikot?
 - Vaikeustason kehitys
-  - Yksi jatkuva kenttä, joka muuttuu vaikeammaksi etenemisen mukaan?
-  - Monta kenttää, edetään järjestyksessä helpoimmasta vaikeimpaan?
 - Pelaajahahmon valinta
   - Käyttäjä voi valita pelihahmon muutaman joukosta
