@@ -18,11 +18,10 @@ class Level:
 
         self.platforms.add(self.floor)
 
-    def generate(self):
-        f = open("src/levels/level_1.json")
-        plat_data = json.load(f)
+    def generate(self, level_id=int):
+        level_data = self.get_level_data(level_id)
 
-        for dict in plat_data["platforms"]:
+        for dict in level_data["platforms"]:
             x = dict["plat_x"]
             y = dict["plat_y"]
 
@@ -32,3 +31,9 @@ class Level:
 
     def get_groups(self):
         return self.all_sprites, self.platforms
+    
+    def get_level_data(self, level_id=int):
+        f = open(f"src/levels/level_{str(level_id)}.json")
+        level_data = json.load(f)
+
+        return level_data
