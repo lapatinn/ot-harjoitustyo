@@ -21,10 +21,13 @@ class Level:
         self.platforms.add(self.floor)
 
     def generate(self):
-        
-        for i in range(0, 4):
-            x = randint(0, 1280)
-            y = randint(0, 720)
+        platform_data = [{"plat_x": 100, "plat_y": 100}, 
+                         {"plat_x": 200, "plat_y": 200},
+                         {"plat_x": 300, "plat_y": 300}
+                         ]
+        for dict in platform_data:
+            x = dict["plat_x"]
+            y = dict["plat_y"]
 
             platform = Platform(x, y)
             self.platforms.add(platform)
