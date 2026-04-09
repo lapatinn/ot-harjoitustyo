@@ -1,0 +1,29 @@
+{
+    "platforms": [
+        {
+            "plat_x": 200,
+            "plat_y": 200
+        },
+        {
+            "plat_x": 300,
+            "plat_y": 300
+        },
+        {
+            "plat_x": 400,
+            "plat_y": 400
+        },
+        {
+            "plat_x": 500,
+            "plat_y": 500
+        },
+        {
+            "plat_x": 700,
+            "plat_y": 600
+        }
+    ],
+
+    "coin": {
+        "coin_x": 200,
+        "coin_y": 200
+    }
+}
