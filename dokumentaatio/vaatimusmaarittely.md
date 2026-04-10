@@ -21,9 +21,9 @@ Sovelluksella on lähtökohtaisesti yksi käyttäjä, eli yksi pelaaja.
 - Pelissä on painovoima, jonka vuoksi pelaaja seisoo alustoilla ja putoaa alaspäin TEHTY
   -  Alustojen välillä voi hyppiä TEHTY
   -  Alustan alareunaan törmää, mikä estää pääsemästä sen päälle suoraan alapuolelta
--  Käyttäjä pääsee seuraavalle tasolle päästyään kentän maaliin asti
-  - Maali on ovi / portaali, joka sijaitsee jossakin hankalasti tavoitettavassa paikassa
-  - Maaliin pääseminen lataa seuraavan kentän
+-  Käyttäjä pääsee seuraavalle tasolle päästyään kentän maaliin asti TEHTY
+  - Maali on ovi / portaali, joka sijaitsee jossakin hankalasti tavoitettavassa paikassa TEHTY
+  - Maaliin pääseminen lataa seuraavan kentän TEHTY
   - Kentät muuttuvat vaikeammiksi
     - Enemmän vihollisia?
     - Vaikeammat hypyt?
