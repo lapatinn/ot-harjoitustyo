@@ -15,12 +15,6 @@ button_y = 200
 
 window = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 
-level = Level(1)
-level.generate()
-all_sprites, platforms = level.get_groups()
-
-game_events = GameEventHandler(level.player, level.platforms)
-
 
 def draw_text(text, font, text_color, x, y):
     img = font.render(text, True, text_color)
@@ -57,6 +51,12 @@ def main(window):
                 if event.button == 1:
                     if play_button_rect.collidepoint(event.pos):
                         menu = False
+
+                        level = Level(1)
+                        level.generate()
+                        all_sprites, platforms = level.get_groups()
+                        game_events = GameEventHandler(level.player, platforms)
+
                         game = True
 
         pygame.display.update()
@@ -69,6 +69,11 @@ def main(window):
 
         level.player.move()
         level.player.check_floor_collision(platforms)
+
+        portal_used = level.check_portal()
+        if portal_used:
+            all_sprites, platforms = level.get_groups()
+            game_events.update_platforms(platforms)
 
         for entity in all_sprites:
             window.blit(entity.surface, entity.rect)
