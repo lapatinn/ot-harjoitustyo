@@ -13,7 +13,8 @@ class Player(pygame.sprite.Sprite):
         self.rect = self.surface.get_rect(
             center=(SCREEN_WIDTH//2, SCREEN_HEIGHT - 50))
 
-        self.pos = vec((SCREEN_WIDTH//2, 0))
+        self.pos = vec((SCREEN_WIDTH - self.rect.width,
+                       SCREEN_HEIGHT - self.rect.height))
         self.vel = vec(0, 0)
         self.acc = vec(0, 0)
 
@@ -71,3 +72,7 @@ class Player(pygame.sprite.Sprite):
             self.moveright = False
         if dir == "cancel_left":
             self.moveleft = False
+
+    def reset_pos(self):
+        self.pos = vec((SCREEN_WIDTH - self.rect.width,
+                       SCREEN_HEIGHT - self.rect.height))
