@@ -8,6 +8,7 @@
     Level "1" -- "1" Player
     Level "1" -- "1" Floor
     Level "1" -- "*" Platform
+    Level "1" -- "1" Portal
     GameEventHandler "1" -- "1" Player
     GameEventHandler "1" -- "*" Platform
     GameEventHandler "1" -- "1" Floor
