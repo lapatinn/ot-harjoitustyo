@@ -38,3 +38,7 @@
 - Selkäranka pelin etenemiselle
   - Tasojen data (platformien sijainti, kolikon sijainti) luetaan json tiedostosta
   - Level-luokka alustetaan jokaista tasoa varten tason järjestysnumerolla
+- Portaali, josta pääsee seuraavalle kentälle
+    - Toistaiseksi vaihtaa kenttien 1 ja 2 välillä
+    - Portaalin sijainti määritelty jokaista kenttää kohti json-tiedostossa
+    - Pelaajan positio nollaantuu kulkiessa portaalin läpi
