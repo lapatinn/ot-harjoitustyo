@@ -6,10 +6,10 @@
         },
         {
             "plat_x": 300,
-            "plat_y": 300
+            "plat_y": 200
         },
         {
-            "plat_x": 400,
+            "plat_x": 700,
             "plat_y": 400
         },
         {
@@ -18,8 +18,9 @@
         }
     ],
 
-    "coin": {
-        "coin_x": 200,
-        "coin_y": 200
+    "portal": 
+    {
+        "portal_x": 80,
+        "portal_y": 90
     }
 }
