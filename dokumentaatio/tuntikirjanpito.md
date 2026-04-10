@@ -9,4 +9,5 @@
 | 02.04 | 0.5  | Vaihtoehtoinen pelaajahahmo, aktivoituu kun pelaaja hyppää |
 | 03.04 | 2    | Hyppimisen parantelu, törmäämisen parantelu, näppäinten painallusten valvonta omaan luokkaan|
 | 09.04 | 3,5  | Pelaajan testien korjailu, level-moduuli tasojen lataamista varten, json-tiedostot tasojen datalle, tasojen datan lukeminen json-tiedostosta |
-| Yhteensä   | 17   | | 
+| 10.04 | 3    | Portaalin piirto. Tason vaihtuminen portaaliin törmätessä. Uusi pelaajan aloituspositio|
+| Yhteensä   | 20   | | 
