@@ -26,3 +26,6 @@ class GameEventHandler:
                     self.player.change_direction("cancel_left")
                 if event.key == pygame.K_d:
                     self.player.change_direction("cancel_right")
+
+    def update_platforms(self, platforms=pygame.sprite.Group):
+        self.platforms = platforms
