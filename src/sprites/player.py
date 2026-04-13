@@ -11,10 +11,10 @@ class Player(pygame.sprite.Sprite):
         super().__init__()
         self.surface = pygame.image.load("src/assets/player.bmp")
         self.rect = self.surface.get_rect(
-            center=(SCREEN_WIDTH//2, SCREEN_HEIGHT - 50))
+            midbottom=(SCREEN_WIDTH//2, SCREEN_HEIGHT - 30))
 
         self.pos = vec((SCREEN_WIDTH - self.rect.width,
-                       SCREEN_HEIGHT - self.rect.height))
+                       SCREEN_HEIGHT - 30))
         self.vel = vec(0, 0)
         self.acc = vec(0, 0)
 
@@ -75,4 +75,4 @@ class Player(pygame.sprite.Sprite):
 
     def reset_pos(self):
         self.pos = vec((SCREEN_WIDTH - self.rect.width,
-                       SCREEN_HEIGHT - self.rect.height))
+                       SCREEN_HEIGHT - 30))
