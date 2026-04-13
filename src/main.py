@@ -46,6 +46,7 @@ def main(window):
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 menu = False
+                exit()
                 break
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if event.button == 1:
