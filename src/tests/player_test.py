@@ -47,16 +47,16 @@ class TestPlayer(unittest.TestCase):
         self.assertEqual(self.player.vel.y, -3)
 
     def test_cancel_jump_cancels_if_jumping(self):
-            self.player.jumping = False
-            self.player.vel.y = -4
-            self.player.cancel_jump()
-            self.assertEqual(self.player.vel.y, -4)
+        self.player.jumping = False
+        self.player.vel.y = -4
+        self.player.cancel_jump()
+        self.assertEqual(self.player.vel.y, -4)
 
     def test_cancel_jump_cancels_if_moving(self):
-                self.player.jumping = True
-                self.player.vel.y = -2
-                self.player.cancel_jump()
-                self.assertEqual(self.player.vel.y, -2)
+        self.player.jumping = True
+        self.player.vel.y = -2
+        self.player.cancel_jump()
+        self.assertEqual(self.player.vel.y, -2)
 
     def test_keyup_changes_dir_right(self):
         self.player.moveright = True
@@ -72,5 +72,5 @@ class TestPlayer(unittest.TestCase):
         vec = pygame.math.Vector2
         self.player.pos = vec((100, 100))
         self.player.reset_pos()
-        self.assertEqual(self.player.pos, pygame.math.Vector2(SCREEN_WIDTH - self.player.rect.width, 
-                                           SCREEN_HEIGHT - 30))
+        self.assertEqual(self.player.pos, pygame.math.Vector2(SCREEN_WIDTH - self.player.rect.width,
+                                                              SCREEN_HEIGHT - 30))
