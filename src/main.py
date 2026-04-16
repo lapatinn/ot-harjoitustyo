@@ -40,7 +40,7 @@ def main(window):
 
         button_color = WELCOME_COLOR if is_hovering else PLAY_COLOR
 
-        play_button_rect = draw_text(button_text, PLAY_FONT,
+        play_button_rect = draw_text("PLAY", PLAY_FONT,
                                      button_color, button_x, button_y)
 
         for event in pygame.event.get():
@@ -53,7 +53,7 @@ def main(window):
                     if play_button_rect.collidepoint(event.pos):
                         menu = False
 
-                        level = Level(1)
+                        level = Level(3)
                         level.generate()
                         all_sprites, platforms = level.get_groups()
                         game_events = GameEventHandler(level.player, platforms)
@@ -76,8 +76,43 @@ def main(window):
             all_sprites, platforms = level.get_groups()
             game_events.update_platforms(platforms)
 
+        rocket_used = level.check_rocket()
+        if rocket_used:
+            game = False
+            victory = True
+
         for entity in all_sprites:
             window.blit(entity.surface, entity.rect)
+
+        pygame.display.update()
+
+    while victory:
+        clock.tick(FPS)
+        window.fill((50, 0, 0))
+
+        draw_text("Vicotry!", WELCOME_FONT,
+                  WELCOME_COLOR, (SCREEN_WIDTH // 2) - 200, 50)
+
+        mouse_x, mouse_y = pygame.mouse.get_pos()
+
+        is_hovering = (button_x <= mouse_x <= button_x + button_width
+                       and button_y <= mouse_y <= button_y + button_height)
+
+        button_color = WELCOME_COLOR if is_hovering else PLAY_COLOR
+
+        play_button_rect = draw_text("Main Menu", PLAY_FONT,
+                                     button_color, button_x, button_y)
+
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                menu = False
+                exit()
+                break
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                if event.button == 1:
+                    if play_button_rect.collidepoint(event.pos):
+                        victory = False
+                        menu = True
 
         pygame.display.update()
 
