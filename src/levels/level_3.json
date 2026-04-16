@@ -1,0 +1,22 @@
+{
+    "platforms": [
+        {
+            "plat_x": 900,
+            "plat_y": 300
+        },
+        {
+            "plat_x": 400,
+            "plat_y": 400
+        },
+        {
+            "plat_x": 700,
+            "plat_y": 600
+        }
+    ],
+
+    "rocket":
+        {
+            "rocket_x": 930,
+            "rocket_y": 290
+        }
+}
