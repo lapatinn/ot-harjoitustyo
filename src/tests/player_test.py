@@ -46,7 +46,7 @@ class TestPlayer(unittest.TestCase):
     def test_jump_triggers_on_collision(self, mock_spritecollide):
         self.player.jumping = False
 
-        mock_collision = MagicMock()  
+        mock_collision = MagicMock()
         mock_spritecollide.return_value = [mock_collision]
         group = MagicMock()
 
@@ -152,6 +152,6 @@ class TestPlayer(unittest.TestCase):
         vec = pygame.math.Vector2
         self.player.pos = vec((100, 100))
         self.player.reset_pos()
-        self.assertEqual(self.player.pos, pygame.math.Vector2(self.SCREEN_WIDTH - self.player.rect.width,
-                                                              self.SCREEN_HEIGHT - 30))
-
+        self.assertEqual(self.player.pos,
+                         pygame.math.Vector2(self.SCREEN_WIDTH - self.player.rect.width,
+                                             self.SCREEN_HEIGHT - 30))

@@ -27,7 +27,7 @@ class TestLevel(unittest.TestCase):
         all_sprites, platforms = self.level.get_groups()
 
         self.assertEqual(len(all_sprites.sprites()), 7)
-    
+
     def test_generate_group_size_platforms(self):
         self.level.generate()
 
