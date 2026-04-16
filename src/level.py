@@ -61,6 +61,8 @@ class Level:
     def check_portal(self):
         collisions = pygame.sprite.spritecollide(
             self.player, self.portal, True)
+        
+        
 
         if self.level_id == 1:
             if collisions:
@@ -77,6 +79,14 @@ class Level:
                 self.generate()
                 self.player.reset_pos()
                 return True
+
+    def check_rocket(self):
+        collisions = pygame.sprite.spritecollide(
+            self.player, self.rocket, True)
+        
+        if collisions:
+            return True
+
 
     def clear_groups(self):
         self.all_sprites.empty()
