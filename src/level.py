@@ -38,7 +38,7 @@ class Level:
         if "portal" in level_data:
             portal = Portal(level_data["portal"]["portal_x"],
                             level_data["portal"]["portal_y"])
-        
+
             self.all_sprites.add(portal)
             self.portal.add(portal)
 
@@ -61,32 +61,20 @@ class Level:
     def check_portal(self):
         collisions = pygame.sprite.spritecollide(
             self.player, self.portal, True)
-        
-        
 
-        if self.level_id == 1:
-            if collisions:
-                self.level_id = 2
-                self.clear_groups()
-                self.generate()
-                self.player.reset_pos()
-                return True
-
-        elif self.level_id == 2:
-            if collisions:
-                self.level_id = 1
-                self.clear_groups()
-                self.generate()
-                self.player.reset_pos()
-                return True
+        if collisions:
+            self.level_id += 1
+            self.clear_groups()
+            self.generate()
+            self.player.reset_pos()
+            return True
 
     def check_rocket(self):
         collisions = pygame.sprite.spritecollide(
             self.player, self.rocket, True)
-        
+
         if collisions:
             return True
-
 
     def clear_groups(self):
         self.all_sprites.empty()
