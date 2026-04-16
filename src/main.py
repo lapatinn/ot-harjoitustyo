@@ -53,7 +53,7 @@ def main(window):
                     if play_button_rect.collidepoint(event.pos):
                         menu = False
 
-                        level = Level(3)
+                        level = Level(1)
                         level.generate()
                         all_sprites, platforms = level.get_groups()
                         game_events = GameEventHandler(level.player, platforms)
@@ -90,7 +90,7 @@ def main(window):
         clock.tick(FPS)
         window.fill((50, 0, 0))
 
-        draw_text("Vicotry!", WELCOME_FONT,
+        draw_text("Victory!", WELCOME_FONT,
                   WELCOME_COLOR, (SCREEN_WIDTH // 2) - 200, 50)
 
         mouse_x, mouse_y = pygame.mouse.get_pos()
@@ -105,9 +105,8 @@ def main(window):
 
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
-                menu = False
+                victory = False
                 exit()
-                break
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if event.button == 1:
                     if play_button_rect.collidepoint(event.pos):
