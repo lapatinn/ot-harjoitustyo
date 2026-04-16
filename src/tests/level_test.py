@@ -1,7 +1,7 @@
 import pygame
 import json
 import unittest
-from unittest.mock import Mock, ANY
+from unittest.mock import patch, MagicMock
 from sprites.platforms import Platform, Floor
 from sprites.player import Player
 from sprites.portal import Portal
@@ -47,3 +47,55 @@ class TestLevel(unittest.TestCase):
         self.assertEqual(len(all_sprites.sprites()), 2)
         self.assertEqual(len(platforms.sprites()), 1)
 
+    @patch("pygame.sprite.spritecollide")
+    def test_check_portal_triggers_level_2(self, mock_spritecollide):
+        mock_collision = MagicMock()
+        mock_spritecollide.return_value = [mock_collision]
+
+        self.assertTrue(self.level.check_portal())
+        self.assertEqual(self.level.level_id, 2)
+
+    @patch("pygame.sprite.spritecollide")
+    def test_check_portal_triggers_level_1(self, mock_spritecollide):
+        self.level = Level(2)
+        mock_collision = MagicMock()
+        mock_spritecollide.return_value = [mock_collision]
+
+        self.assertTrue(self.level.check_portal())
+        self.assertEqual(self.level.level_id, 1)
+
+    @patch("pygame.sprite.spritecollide")
+    def test_check_portal_doesnt_trigger_level_2_if_no_collision(self, mock_spritecollide):
+        self.level = Level(1)
+        mock_collision = MagicMock()
+        mock_spritecollide.return_value = None
+
+        self.assertFalse(self.level.check_portal())
+        self.assertEqual(self.level.level_id, 1)
+
+    @patch("pygame.sprite.spritecollide")
+    def test_check_portal_doesnt_trigger_level_1_if_no_collision(self, mock_spritecollide):
+        self.level = Level(2)
+        mock_collision = MagicMock()
+        mock_spritecollide.return_value = None
+
+        self.assertFalse(self.level.check_portal())
+        self.assertEqual(self.level.level_id, 2)
+
+    @patch("pygame.sprite.spritecollide")
+    def test_check_portal_doesnt_trigger_if_level_doesnt_exist_and_collisions(self, mock_spritecollide):
+        self.level = Level(3)
+        mock_collision = MagicMock()
+        mock_spritecollide.return_value = [mock_collision]
+
+        self.assertFalse(self.level.check_portal())
+        self.assertEqual(self.level.level_id, 3)
+
+    @patch("pygame.sprite.spritecollide")
+    def test_check_portal_doesnt_trigger_if_level_doesnt_exist_and_no_collisions(self, mock_spritecollide):
+        self.level = Level(3)
+        mock_collision = MagicMock()
+        mock_spritecollide.return_value = None
+
+        self.assertFalse(self.level.check_portal())
+        self.assertEqual(self.level.level_id, 3)
