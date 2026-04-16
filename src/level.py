@@ -3,6 +3,7 @@ import json
 from sprites.player import Player
 from sprites.platforms import Platform, Floor
 from sprites.portal import Portal
+from sprites.rocket import Rocket
 
 
 class Level:
@@ -13,6 +14,7 @@ class Level:
         self.platforms = pygame.sprite.Group()
         self.all_sprites = pygame.sprite.Group()
         self.portal = pygame.sprite.Group()
+        self.rocket = pygame.sprite.Group()
 
         self.all_sprites.add(
             self.player,
@@ -33,10 +35,19 @@ class Level:
             self.platforms.add(platform)
             self.all_sprites.add(platform)
 
-        portal = Portal(level_data["portal"]["portal_x"],
-                        level_data["portal"]["portal_y"])
-        self.all_sprites.add(portal)
-        self.portal.add(portal)
+        if "portal" in level_data:
+            portal = Portal(level_data["portal"]["portal_x"],
+                            level_data["portal"]["portal_y"])
+        
+            self.all_sprites.add(portal)
+            self.portal.add(portal)
+
+        if "rocket" in level_data:
+            rocket = Rocket(level_data["rocket"]["rocket_x"],
+                            level_data["rocket"]["rocket_y"])
+
+            self.all_sprites.add(rocket)
+            self.rocket.add(rocket)
 
     def get_groups(self):
         return self.all_sprites, self.platforms
@@ -78,3 +89,4 @@ class Level:
         self.platforms.add(self.floor)
 
         self.portal.empty()
+        self.rocket.empty()
