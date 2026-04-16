@@ -1,8 +1,8 @@
 import unittest
+from unittest.mock import patch, MagicMock
 import pygame
 from sprites.player import Player
 from sprites.platforms import Floor
-from config import ACC, SCREEN_WIDTH, SCREEN_HEIGHT
 
 
 class TestPlayer(unittest.TestCase):
@@ -13,18 +13,20 @@ class TestPlayer(unittest.TestCase):
         self.platforms = pygame.sprite.Group()
         self.platforms.add(self.floor)
 
+        self.ACC, self.SCREEN_WIDTH, self.SCREEN_HEIGHT = 1, 1280, 720
+
     def test_create_player(self):
         self.assertIsInstance(self.player, Player)
 
     def test_move_left_changes_direction(self):
         self.player.change_direction("left")
         self.player.move()
-        self.assertEqual(self.player.acc.x, -ACC)
+        self.assertEqual(self.player.acc.x, -self.ACC)
 
     def test_move_right_changes_direction(self):
         self.player.change_direction("right")
         self.player.move()
-        self.assertEqual(self.player.acc.x, ACC)
+        self.assertEqual(self.player.acc.x, self.ACC)
 
     def test_player_stays_in_bounds_left(self):
         self.player.pos.x = -1
@@ -32,13 +34,91 @@ class TestPlayer(unittest.TestCase):
         self.assertEqual(self.player.pos.x, 0)
 
     def test_player_stays_in_bounds_right(self):
-        self.player.pos.x = SCREEN_WIDTH + 1
+        self.player.pos.x = self.SCREEN_WIDTH + 1
         self.player.move()
-        self.assertEqual(self.player.pos.x, SCREEN_WIDTH)
+        self.assertEqual(self.player.pos.x, self.SCREEN_WIDTH)
 
-    def test_jump_only_if_collide(self):
+    def test_no_jump_if_no_collision(self):
         self.player.jump(self.platforms)
         self.assertEqual(self.player.jumping, False)
+
+    @patch("pygame.sprite.spritecollide")
+    def test_jump_triggers_on_collision(self, mock_spritecollide):
+        self.player.jumping = False
+
+        mock_collision = MagicMock()  
+        mock_spritecollide.return_value = [mock_collision]
+        group = MagicMock()
+
+        self.player.jump(group)
+
+        self.assertTrue(self.player.jumping)
+
+    @patch("pygame.sprite.spritecollide")
+    def test_floor_collision_cancels_jump(self, mock_spritecollide):
+        mock_collision = MagicMock()
+        mock_collision.rect = MagicMock()
+        mock_collision.rect.bottom = 1
+
+        mock_spritecollide.return_value = [mock_collision]
+        group = MagicMock()
+
+        self.player.jumping = True
+        self.player.vel.y = 1
+        self.player.pos.y = 0
+        self.player.check_floor_collision(group)
+
+        self.assertFalse(self.player.jumping)
+        self.assertEqual(self.player.vel.y, 0)
+
+    @patch("pygame.sprite.spritecollide")
+    def test_floor_collision_triggers_when_moving(self, mock_spritecollide):
+        mock_collision = MagicMock()
+        mock_collision.rect = MagicMock()
+        mock_collision.rect.bottom = 1
+
+        mock_spritecollide.return_value = [mock_collision]
+        group = MagicMock()
+
+        self.player.jumping = True
+        self.player.vel.y = 0
+        self.player.pos.y = 0
+        self.player.check_floor_collision(group)
+
+        self.assertTrue(self.player.jumping)
+        self.assertEqual(self.player.vel.y, 0)
+
+    @patch("pygame.sprite.spritecollide")
+    def test_floor_collision_triggers_when_collision(self, mock_spritecollide):
+        mock_collision = MagicMock()
+        mock_collision.rect = MagicMock()
+        mock_collision.rect.bottom = 1
+
+        mock_spritecollide.return_value = None
+        group = MagicMock()
+
+        self.player.jumping = True
+        self.player.vel.y = 1
+        self.player.pos.y = 0
+        self.player.check_floor_collision(group)
+
+        self.assertTrue(self.player.jumping)
+
+    @patch("pygame.sprite.spritecollide")
+    def test_floor_collision_triggers_when_below_platform(self, mock_spritecollide):
+        mock_collision = MagicMock()
+        mock_collision.rect = MagicMock()
+        mock_collision.rect.bottom = 1
+
+        mock_spritecollide.return_value = [mock_collision]
+        group = MagicMock()
+
+        self.player.jumping = True
+        self.player.vel.y = 1
+        self.player.pos.y = 2
+        self.player.check_floor_collision(group)
+
+        self.assertTrue(self.player.jumping)
 
     def test_cancel_jump_sets_vel(self):
         self.player.jumping = True
@@ -72,5 +152,6 @@ class TestPlayer(unittest.TestCase):
         vec = pygame.math.Vector2
         self.player.pos = vec((100, 100))
         self.player.reset_pos()
-        self.assertEqual(self.player.pos, pygame.math.Vector2(SCREEN_WIDTH - self.player.rect.width,
-                                                              SCREEN_HEIGHT - 30))
+        self.assertEqual(self.player.pos, pygame.math.Vector2(self.SCREEN_WIDTH - self.player.rect.width,
+                                                              self.SCREEN_HEIGHT - 30))
+
