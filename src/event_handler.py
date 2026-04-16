@@ -1,3 +1,4 @@
+import sys
 import pygame
 from sprites.player import Player
 
@@ -10,8 +11,7 @@ class GameEventHandler:
     def handle_events(self):
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
-                exit()
-                break
+                sys.exit()
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_SPACE:
                     self.player.jump(self.platforms)

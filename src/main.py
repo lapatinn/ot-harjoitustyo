@@ -1,5 +1,6 @@
 import pygame
-from config import PLAY_FONT, SCREEN_HEIGHT, SCREEN_WIDTH, FPS, WELCOME_COLOR, WELCOME_FONT, PLAY_COLOR
+from config import (PLAY_FONT, SCREEN_HEIGHT, SCREEN_WIDTH,
+                    FPS, WELCOME_COLOR, WELCOME_FONT, PLAY_COLOR)
 from event_handler import GameEventHandler
 from level import Level
 
