@@ -4,6 +4,7 @@ from sprites.player import Player
 from sprites.platforms import Platform, Floor
 from sprites.portal import Portal
 from sprites.rocket import Rocket
+from config import LEVEL_COUNT
 
 
 class Level:
@@ -63,11 +64,12 @@ class Level:
             self.player, self.portal, True)
 
         if collisions:
-            self.level_id += 1
-            self.clear_groups()
-            self.generate()
-            self.player.reset_pos()
-            return True
+            if self.level_id < LEVEL_COUNT:
+                self.level_id += 1
+                self.clear_groups()
+                self.generate()
+                self.player.reset_pos()
+                return True
 
     def check_rocket(self):
         collisions = pygame.sprite.spritecollide(
