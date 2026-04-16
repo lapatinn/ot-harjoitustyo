@@ -1,5 +1,4 @@
 import pygame
-from pygame.locals import *
 from config import SCREEN_WIDTH, SCREEN_HEIGHT, ACC, FRIC, JUMP_FORCE
 
 pygame.init()

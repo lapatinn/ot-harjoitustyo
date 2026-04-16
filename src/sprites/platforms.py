@@ -1,5 +1,4 @@
 import pygame
-from pygame.locals import *
 from config import SCREEN_HEIGHT, SCREEN_WIDTH
 
 pygame.init()
