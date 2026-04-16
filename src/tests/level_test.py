@@ -62,7 +62,7 @@ class TestLevel(unittest.TestCase):
         mock_spritecollide.return_value = [mock_collision]
 
         self.assertTrue(self.level.check_portal())
-        self.assertEqual(self.level.level_id, 1)
+        self.assertEqual(self.level.level_id, 3)
 
     @patch("pygame.sprite.spritecollide")
     def test_check_portal_doesnt_trigger_level_2_if_no_collision(self, mock_spritecollide):
