@@ -28,12 +28,20 @@ Sovelluksella on lähtökohtaisesti yksi käyttäjä, eli yksi pelaaja.
     - Enemmän vihollisia?
     - Vaikeammat hypyt?
 
+- Käyttäjä voi edetä tasolta toiselle portaalien kautta TEHTY
+  - Jokaisella tasolla yksi portaali, joka vie seuraavalle tasolle TEHTY
+- Käyttäjä voi voittaa pelin pääsemällä raketille
+  - Pelin voi aloittaa uudelleen
+
 - Käyttäjällä on rajoitettu määrä "elämiä", joiden loppuessa peli päättyy
   - Elämät vähenevät yksi kerrallaan,  kun käyttäjä tekee kontaktia vihollisen kanssa
   - Elämiä voi kerätä lisää
   - Käyttäjä voi yrittää peliä uudelleen
-- Käyttäjä voi voittaa pelin, eli päästä maaliin asti
-  - Peli päättyy ja sen voi aloittaa uudelleen
+- Pelissä on vihollisia, jotka vähentävät käyttäjän elämiä
+  - Viholliset leijuvat käyttäjää kohti, käyttäjän on väistettävä niitä
+- Pelikentillä on kolikoita, joita käyttäjä voi kerätä
+  - Esim. 5 kolikkoa antaa käyttäjälle elämän
+
  
 ## Jatkokehitysideoita
 
