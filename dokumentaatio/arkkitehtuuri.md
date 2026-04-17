@@ -1,3 +1,7 @@
+## Luokkakaavio
+
+Sovelluksen tämänhetkinen luokkarakenne:
+
 ```mermaid
  classDiagram
     main "1" -- "1" GameEventHandler
@@ -13,3 +17,6 @@
     Level "1" -- "1" Portal
     Level "1" -- "1" Rocket
 ```
+
+## Sekvenssidiagrammi
+
