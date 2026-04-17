@@ -12,4 +12,5 @@
 | 10.04 | 3    | Portaalin piirto. Tason vaihtuminen portaaliin törmätessä. Uusi pelaajan aloituspositio|
 | 13.04 | 1    | Pieniä muutoksia, pelaaja- ja event handler testejä |
 | 14.04 | 0.5  | Level-luokan testejä|
-| Yhteensä   | 21.5   | | 
+| 16.04 | 3    | Player ja Level -luokkien testejä (rivikattavuus ~60%), tasojen lataaminen, raketti jolla voi lopettaa pelin, voittonäyttö, refaktorointiurakkaan valmistautumista |
+| Yhteensä   | 24.5   | | 
