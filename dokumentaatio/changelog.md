@@ -42,3 +42,14 @@
     - Toistaiseksi vaihtaa kenttien 1 ja 2 välillä
     - Portaalin sijainti määritelty jokaista kenttää kohti json-tiedostossa
     - Pelaajan positio nollaantuu kulkiessa portaalin läpi
+- Testejä laajennettu hieman
+
+# Viikko 5
+
+- Testejä laajennettu
+    - Level ja Player -luokkia testataan nyt kattavammin
+- Tasojen lataamista muutettu
+    - Ladataan seuraava taso pelaajan päästyä portaaliin
+- Lisätty selkäranka raketille, jolla pelaaja voi lopettaa pelin
+- Lisätty voittonäkymä
+    - Toistaiseksi pelin uudelleenaloittaminen ei toimi, vaatii pelisilmukan refaktorointia
