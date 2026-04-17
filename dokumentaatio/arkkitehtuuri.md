@@ -20,7 +20,7 @@ Sovelluksen tämänhetkinen luokkarakenne:
 
 ## Sekvenssikaavio
 
-Sovelluksen käynnistämistä ja pelille välttämättömien luokkien lataamista kuvaava kaavio:
+Sovelluksen käynnistämistä ja pelille välttämättömien luokkien alustamista kuvaava kaavio:
 
 ```mermaid
  sequenceDiagram
