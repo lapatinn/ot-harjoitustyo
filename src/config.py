@@ -8,9 +8,9 @@ ACC = 1
 FRIC = -0.12
 JUMP_FORCE = 15
 
-WELCOME_FONT = pygame.font.SysFont("arialblack", 50)
-PLAY_FONT = pygame.font.SysFont("arialblack", 60)
-WELCOME_COLOR = (255, 255, 255)
-PLAY_COLOR = (213, 216, 53)
+TOP_FONT = pygame.font.SysFont("arialblack", 70)
+BOTTOM_FONT = pygame.font.SysFont("arialblack", 60)
+TOP_COLOR = (255, 255, 255)
+BOTTOM_COLOR = (213, 216, 53)
 
 LEVEL_COUNT = 3
