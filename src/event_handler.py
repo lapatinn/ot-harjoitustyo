@@ -32,7 +32,7 @@ class GameEventHandler:
 
 
 class MenuEventHandler:
-    def handle_events(self, bottom_text, bottom_text_rect):
+    def handle_events(self, bottom_text=str, bottom_text_rect=pygame.Rect):
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 sys.exit()
