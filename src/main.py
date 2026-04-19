@@ -1,16 +1,11 @@
 import pygame
-from config import (PLAY_FONT, SCREEN_HEIGHT, SCREEN_WIDTH,
-                    FPS, WELCOME_COLOR, WELCOME_FONT, PLAY_COLOR)
-from event_handler import GameEventHandler
+from config import (BOTTOM_FONT, SCREEN_HEIGHT, SCREEN_WIDTH,
+                    FPS, TOP_COLOR, TOP_FONT, BOTTOM_COLOR)
+from event_handler import GameEventHandler, MenuEventHandler
 from level import Level
 
 pygame.init()
 pygame.display.set_caption("Portal Bob")
-
-button_text = "PLAY"
-button_width, button_height = PLAY_FONT.size(button_text)
-button_x = (SCREEN_WIDTH // 2) - (PLAY_FONT.size(button_text)[0] // 2)
-button_y = 200
 
 window = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 
@@ -22,7 +17,7 @@ def draw_text(text, font, text_color, x, y):
 
 
 def init_game():
-    level = Level(3)
+    level = Level(1)
     level.generate()
 
     all_sprites, platforms = level.get_groups()
@@ -32,37 +27,39 @@ def init_game():
     return level, game_events, all_sprites, platforms
 
 
-def menu_loop(top_text, bottom_text):
-    window.fill((50, 0, 0))
+def menu_loop(menu_events,
+              top_text,
+              bottom_text):
 
-    tt_width = WELCOME_FONT.size(top_text)[0]
-    bt_width = PLAY_FONT.size(bottom_text)[0]
+    window.fill((0, 0, 40))
 
-    draw_text(top_text, WELCOME_FONT,
-              WELCOME_COLOR, (SCREEN_WIDTH // 2) - (tt_width // 2), 50)
+    top_text_width, top_text_height = TOP_FONT.size(top_text)
+    bottom_text_width, bottom_text_height = BOTTOM_FONT.size(bottom_text)
 
-    mouse_x, mouse_y = pygame.mouse.get_pos()
+    top_text_x = (SCREEN_WIDTH // 2) - (top_text_width // 2)
+    top_text_y = 1.5 * top_text_height
 
-    is_hovering = (button_x <= mouse_x <= button_x + button_width
-                   and button_y <= mouse_y <= button_y + button_height)
+    bottom_text_x = (SCREEN_WIDTH // 2) - (bottom_text_width // 2)
+    bottom_text_y = (SCREEN_HEIGHT // 2) - (bottom_text_height // 2)
 
-    button_color = WELCOME_COLOR if is_hovering else PLAY_COLOR
+    draw_text(top_text,
+              TOP_FONT,
+              TOP_COLOR,
+              top_text_x,
+              top_text_y)
 
-    play_button_rect = draw_text(bottom_text, PLAY_FONT,
-                                 button_color, button_x, button_y)
+    bottom_text_color = TOP_COLOR if menu_events.is_hovering(bottom_text_x,
+                                                             bottom_text_y,
+                                                             bottom_text_width,
+                                                             bottom_text_height,) else BOTTOM_COLOR
 
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            menu = False
-            exit()
-            break
-        if event.type == pygame.MOUSEBUTTONDOWN:
-            if event.button == 1:
-                if play_button_rect.collidepoint(event.pos):
-                    if top_text == "VICTORY":
-                        return "menu"
-                    elif top_text == "Welcome to platfromer game":
-                        return "game"
+    bottom_text_rect = draw_text(bottom_text,
+                                 BOTTOM_FONT,
+                                 bottom_text_color,
+                                 bottom_text_x,
+                                 bottom_text_y)
+
+    return menu_events.handle_events(bottom_text, bottom_text_rect)
 
 
 def game_loop(all_sprites=pygame.sprite.Group,
@@ -93,30 +90,28 @@ def game_loop(all_sprites=pygame.sprite.Group,
 def main():
     clock = pygame.time.Clock()
     game_state = "menu"
+    menu_events = MenuEventHandler()
 
     while True:
         clock.tick(FPS)
 
         if game_state == "menu":
-            res = menu_loop("Welcome to platfromer game", "Play!")
+            res = menu_loop(menu_events, "Portal Bob", "Play")
             if res == "game":
                 level, game_events, all_sprites, platforms = init_game()
                 game_state = "game"
+
         elif game_state == "game":
             res = game_loop(all_sprites, platforms, level, game_events)
             if res == "victory":
                 game_state = "victory"
+
         elif game_state == "victory":
-            res = menu_loop("VICTORY", "Main menu")
-            if res == "game":
-                game_state = "game"
-            elif res == "menu":
+            res = menu_loop(menu_events, "VICTORY", "Main menu")
+            if res == "menu":
                 game_state = "menu"
 
         pygame.display.update()
-
-    pygame.quit()
-    quit()
 
 
 if __name__ == "__main__":
