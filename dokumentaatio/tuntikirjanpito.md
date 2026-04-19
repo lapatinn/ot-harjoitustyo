@@ -13,5 +13,6 @@
 | 13.04 | 1    | Pieniä muutoksia, pelaaja- ja event handler testejä |
 | 14.04 | 0.5  | Level-luokan testejä|
 | 16.04 | 3    | Player ja Level -luokkien testejä (rivikattavuus ~60%), tasojen lataaminen, raketti jolla voi lopettaa pelin, voittonäyttö, refaktorointiurakkaan valmistautumista |
-| 17.04 | 1 | README:n päivittelyä, dokumentaation korjailua, luokkakaavion päivittelyä, sekvenssikaavio pelin käynnistymisestä |
-| Yhteensä   | 25.5   | | 
+| 17.04 | 1    | README:n päivittelyä, dokumentaation korjailua, luokkakaavion päivittelyä, sekvenssikaavio pelin käynnistymisestä |
+| 19.04 | 3    | Pelisilmukan refaktorointi, pelin tilan vaihtuminen, käyttäjän syötteen käsittelyn erottelu omaan luokkaan menusta, tekstin piirtämisen parantelu, pientä hienosäätöä |
+| Yhteensä   | 28.5   | | 

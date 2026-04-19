@@ -51,5 +51,9 @@
 - Tasojen lataamista muutettu
     - Ladataan seuraava taso pelaajan päästyä portaaliin
 - Lisätty selkäranka raketille, jolla pelaaja voi lopettaa pelin
+    - Rakettiin pääsy lopettaa pelin, avaa voittonäkymän
 - Lisätty voittonäkymä
-    - Toistaiseksi pelin uudelleenaloittaminen ei toimi, vaatii pelisilmukan refaktorointia
+    - Voittonäkymästä pääsee takaisin päävalikkoon
+    - Pelin voi aloittaa uudelleen
+- Pelisilmukka refaktoroitu
+    - Tilat vaihtuvat nyt sulavasti ja uusien tasojen / tilojen lisääminen helppoa
