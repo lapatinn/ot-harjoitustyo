@@ -107,7 +107,7 @@ def main():
                 game_state = "victory"
 
         elif game_state == "victory":
-            res = menu_loop(menu_events, "VICTORY", "Main menu")
+            res = menu_loop(menu_events, "You won!", "Main menu")
             if res == "menu":
                 game_state = "menu"
 
