@@ -27,9 +27,9 @@ def init_game():
     return level, game_events, all_sprites, platforms
 
 
-def menu_loop(menu_events,
-              top_text,
-              bottom_text):
+def menu_loop(menu_events=MenuEventHandler,
+              top_text=str,
+              bottom_text=str):
 
     window.fill((0, 0, 40))
 
@@ -96,7 +96,7 @@ def main():
         clock.tick(FPS)
 
         if game_state == "menu":
-            res = menu_loop(menu_events, "Portal Bob", "Play")
+            res = menu_loop(menu_events, "Main menu", "Play")
             if res == "game":
                 level, game_events, all_sprites, platforms = init_game()
                 game_state = "game"
