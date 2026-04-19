@@ -30,8 +30,8 @@ Sovelluksella on lähtökohtaisesti yksi käyttäjä, eli yksi pelaaja.
 
 - Käyttäjä voi edetä tasolta toiselle portaalien kautta TEHTY
   - Jokaisella tasolla yksi portaali, joka vie seuraavalle tasolle TEHTY
-- Käyttäjä voi voittaa pelin pääsemällä raketille
-  - Pelin voi aloittaa uudelleen
+- Käyttäjä voi voittaa pelin pääsemällä raketille TEHTY
+  - Pelin voi aloittaa uudelleen TEHTY
 
 - Käyttäjällä on rajoitettu määrä "elämiä", joiden loppuessa peli päättyy
   - Elämät vähenevät yksi kerrallaan,  kun käyttäjä tekee kontaktia vihollisen kanssa
