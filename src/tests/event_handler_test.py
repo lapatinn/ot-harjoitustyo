@@ -102,8 +102,8 @@ class TestGameEventHandler(unittest.TestCase):
 
         self.eh.handle_events()
 
-
         self.eh.player.change_direction.assert_called_with("cancel_right")
+
 
 class TestMenuEventHandler(unittest.TestCase):
     def setUp(self):
@@ -182,7 +182,8 @@ class TestMenuEventHandler(unittest.TestCase):
         mock_rect = MagicMock()
         mock_rect.collidepoint.return_value = True
 
-        self.assertEqual(self.eh.handle_events("Incorrect text", mock_rect), None)
+        self.assertEqual(self.eh.handle_events(
+            "Incorrect text", mock_rect), None)
 
     @patch("pygame.mouse.get_pos")
     def test_is_hovering_returns_correct_value(self, mock_mouse):
