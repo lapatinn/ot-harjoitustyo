@@ -1,10 +1,5 @@
-import pygame
-import json
 import unittest
 from unittest.mock import patch, MagicMock
-from sprites.platforms import Platform, Floor
-from sprites.player import Player
-from sprites.portal import Portal
 from level import Level
 
 
