@@ -48,6 +48,7 @@
 
 - Testejä laajennettu
     - Level ja Player -luokkia testataan nyt kattavammin
+    - Eventhandler sai vihdoin testit
 - Tasojen lataamista muutettu
     - Ladataan seuraava taso pelaajan päästyä portaaliin
 - Lisätty selkäranka raketille, jolla pelaaja voi lopettaa pelin
