@@ -108,3 +108,4 @@ class Level:
 
         self.portal.empty()
         self.rocket.empty()
+        self.spikes.empty()
