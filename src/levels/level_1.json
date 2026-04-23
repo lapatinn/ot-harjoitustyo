@@ -2,18 +2,6 @@
     "platforms": [
         {
             "plat_x": 100,
-            "plat_y": 100
-        },
-        {
-            "plat_x": 300,
-            "plat_y": 200
-        },
-        {
-            "plat_x": 700,
-            "plat_y": 400
-        },
-        {
-            "plat_x": 500,
             "plat_y": 500
         }
     ],
@@ -21,6 +9,6 @@
     "portal": 
     {
         "portal_x": 80,
-        "portal_y": 90
+        "portal_y": 490
     }
 }

@@ -14,9 +14,9 @@
         }
     ],
 
-    "rocket":
+    "portal":
         {
-            "rocket_x": 930,
-            "rocket_y": 290
+            "portal_x": 930,
+            "portal_y": 290
         }
 }

@@ -1,0 +1,30 @@
+{
+    "platforms": [
+        {
+            "plat_x": 65,
+            "plat_y": 500
+        },
+        {
+            "plat_x": 600,
+            "plat_y": 450
+        },
+        {
+            "plat_x": 280,
+            "plat_y": 235
+        },
+        {
+            "plat_x": 1235,
+            "plat_y": 420
+        },
+        {
+            "plat_x": 780,
+            "plat_y": 100
+        }
+    ],
+
+    "portal": 
+    {
+        "portal_x": 1250,
+        "portal_y": 410
+    }
+}
