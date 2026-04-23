@@ -26,6 +26,16 @@ def draw_health(text):
     return img.get_rect(topleft=(x, y))
 
 
+def draw_level_id(text):
+    text = f"Level: {text}"
+    img = HEALTH_FONT.render(text, True, HEALTH_COLOR)
+    x = SCREEN_WIDTH - img.get_width() * 1.2
+    y = 0.7 * img.get_height()
+
+    window.blit(img, (x, y))
+    return img.get_rect(topleft=(x, y))
+
+
 def init_game():
     level = Level(1)
     level.generate()
@@ -101,6 +111,7 @@ def game_loop(all_sprites=pygame.sprite.Group,
         window.blit(entity.surface, entity.rect)
 
     draw_health(level.player.get_health_str())
+    draw_level_id(str(level.level_id))
 
 
 def main():
