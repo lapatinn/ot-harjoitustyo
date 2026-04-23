@@ -58,3 +58,24 @@
     - Pelin voi aloittaa uudelleen
 - Pelisilmukka refaktoroitu
     - Tilat vaihtuvat nyt sulavasti ja uusien tasojen / tilojen lisääminen helppoa
+
+# Viikko 6
+
+- Pelaajan elämä-systeemi
+    - Aloitetaan 3:lla sydämmellä
+    - Vähenee kun törmää esteeseen
+    - Peli päättyy kun loppuu
+- Kuolema gamestate
+    - Käytännössä sama kuin menu, eri tekstit vain
+    - Voi aloittaa pelin suoraan uudelleen
+- Esteet (piikkipallo?)
+    - Aseteltu mahdollisimman tielle, jotta peli ei olisi liian helppo
+    - Törmääminen poistaa piikin, tasapainottava tekijä :)
+    - Tällä hetkellä pikku bugi: Jos pelaaja tippuu esim 2:n lähekkäin olevan piikin päälle ja poistaa molemmat samanaikaisesti, pelaajalta vähennetään vain yksi elämä
+- Mainin refaktorointi
+    - Tekstin renderöinnistä vastaavat funktiot siirretty omaan moduuliin
+    - Pääsilmukassa jatkuvasti kutsuttavat loop-metodit siirretty omaan moduuliin
+- Tasojen suunnittelu
+    - Yritin ajatuksella rakentaa edes jollain tavalla haastavia tasoja, jotta pelillä olisi arvoa muutenkin kuin pelkkänä harjoitustyönä
+    - Tällä hetkellä tasoja on 5, niitä tulee lisää, kenties jopa 10
+    - Tasot muuttuvat progressiivisesti vaikeammiksi, piikkejä tulee enemmän ja vaaditaan tarkempia ja harkitumpia hyppyjä
