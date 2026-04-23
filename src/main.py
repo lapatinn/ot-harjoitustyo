@@ -1,6 +1,7 @@
 import pygame
 from config import (BOTTOM_FONT, SCREEN_HEIGHT, SCREEN_WIDTH,
-                    FPS, TOP_COLOR, TOP_FONT, BOTTOM_COLOR)
+                    FPS, TOP_COLOR, TOP_FONT, BOTTOM_COLOR,
+                    HEALTH_FONT, HEALTH_COLOR)
 from event_handler import GameEventHandler, MenuEventHandler
 from level import Level
 
@@ -16,8 +17,17 @@ def draw_text(text, font, text_color, x, y):
     return img.get_rect(topleft=(x, y))
 
 
+def draw_health(text):
+    img = HEALTH_FONT.render(text, True, HEALTH_COLOR)
+    x = 0.1 * img.get_width()
+    y = 0.7 * img.get_height()
+
+    window.blit(img, (x, y))
+    return img.get_rect(topleft=(x, y))
+
+
 def init_game():
-    level = Level(1)
+    level = Level(5)
     level.generate()
 
     all_sprites, platforms = level.get_groups()
@@ -83,8 +93,14 @@ def game_loop(all_sprites=pygame.sprite.Group,
     if rocket_used:
         return "victory"
 
+    player_dead = level.check_damage()
+    if player_dead:
+        return "death"
+
     for entity in all_sprites:
         window.blit(entity.surface, entity.rect)
+
+    draw_health(level.player.get_health_str())
 
 
 def main():
@@ -105,11 +121,19 @@ def main():
             res = game_loop(all_sprites, platforms, level, game_events)
             if res == "victory":
                 game_state = "victory"
+            elif res == "death":
+                game_state = "death"
 
         elif game_state == "victory":
             res = menu_loop(menu_events, "You won!", "Main menu")
             if res == "menu":
                 game_state = "menu"
+
+        elif game_state == "death":
+            res = menu_loop(menu_events, "You died!", "Try again")
+            if res == "game":
+                level, game_events, all_sprites, platforms = init_game()
+                game_state = "game"
 
         pygame.display.update()
 
