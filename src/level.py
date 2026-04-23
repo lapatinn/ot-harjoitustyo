@@ -1,5 +1,5 @@
-import pygame
 import json
+import pygame
 from sprites.player import Player
 from sprites.platforms import Platform, Floor
 from sprites.portal import Portal
