@@ -4,7 +4,7 @@ Aineopintojen harjoitustyö, ohjelmistotekniikka
 
 ## 2D videopeli pygame-kirjastolla.
 
-Yksinkertainen tasohyppelypeli **pygame-kirjastolla**, jossa pieni vihreä ukkeli seikkailee avaruudessa. Tarkoituksena on hyppiä platformien päällä putoamatta *loputtomaan tyhjyyteen* ja kerätä mahdollisimman paljon kolikoita. Pelaajalla on aluksi tietty määrä elämiä, jotka vähenevät törmätessä vihollisiin. Pelaaja voi voittaa pelin pääsemällä kentän loppuun. Pelin vaikeustason kehityksen toteutus on vielä toistaiseksi epäselvää.
+Tasohyppelypeli **pygame-kirjastolla**, jossa pieni vihreä ukkeli seikkailee avaruudessa. Tarkoituksena on hyppiä platformien päällä osumatta *kauheisiin piikkipalloihin* ja kerätä mahdollisimman paljon kolikoita. Pelaajalla on aluksi tietty määrä elämiä, jotka vähenevät törmätessä piikkeihin. Pelaaja voi voittaa pelin pääsemällä kentän loppuun. Pelin tasot muuttuvat vaikeammiksi edetessä.
 
 ## Linkit
 
