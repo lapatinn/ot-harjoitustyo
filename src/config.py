@@ -13,4 +13,7 @@ BOTTOM_FONT = pygame.font.SysFont("arialblack", 60)
 TOP_COLOR = (255, 255, 255)
 BOTTOM_COLOR = (213, 216, 53)
 
+HEALTH_FONT = pygame.font.SysFont("arialblack", 40)
+HEALTH_COLOR = (190, 0, 0)
+
 LEVEL_COUNT = 5
