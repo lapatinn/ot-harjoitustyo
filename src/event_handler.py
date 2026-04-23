@@ -44,6 +44,8 @@ class MenuEventHandler:
                             return "menu"
                         if bottom_text == "Play":
                             return "game"
+                        if bottom_text == "Try again":
+                            return "game"
 
     def is_hovering(self, bt_x, bt_y, bt_w, bt_h):
         m_x, m_y = pygame.mouse.get_pos()
