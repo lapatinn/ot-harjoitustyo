@@ -10,6 +10,13 @@
         }
     ],
 
+    "spikes": [
+        {
+            "spike_x" : 1080,
+            "spike_y": 490
+        }
+    ],
+
     "portal":
         {
             "portal_x": 600,

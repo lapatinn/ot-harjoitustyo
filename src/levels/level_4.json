@@ -22,6 +22,37 @@
         }
     ],
 
+    "spikes": [
+        {
+            "spike_x" : 1000,
+            "spike_y": 700
+        },
+        {
+            "spike_x" : 950,
+            "spike_y": 700
+        },
+        {
+            "spike_x" : 900,
+            "spike_y": 700
+        },
+        {
+            "spike_x" : 1050,
+            "spike_y": 700
+        },
+        {
+            "spike_x" : 470,
+            "spike_y": 500
+        },
+        {
+            "spike_x" : 1040,
+            "spike_y": 300
+        },
+        {
+            "spike_x" : 1040,
+            "spike_y": 250
+        }
+    ],
+
     "portal": 
     {
         "portal_x": 80,

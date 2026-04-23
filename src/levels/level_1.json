@@ -6,6 +6,13 @@
         }
     ],
 
+    "spikes": [
+        {
+            "spike_x" : 650,
+            "spike_y": 690
+        }
+    ],
+
     "portal": 
     {
         "portal_x": 80,

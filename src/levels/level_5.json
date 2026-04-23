@@ -25,21 +25,53 @@
     "spikes": [
         {
             "spike_x" : 500,
-            "spike_y": 500
+            "spike_y": 700
         },
         {
             "spike_x" : 600,
-            "spike_y": 500
+            "spike_y": 700
         },
         {
             "spike_x" : 700,
-            "spike_y": 500
+            "spike_y": 700
+        },
+        {
+            "spike_x" : 630,
+            "spike_y": 420
+        },
+        {
+            "spike_x" : 630,
+            "spike_y": 370
+        },
+        {
+            "spike_x" : 250,
+            "spike_y": 200
+        },
+        {
+            "spike_x" : 250,
+            "spike_y": 150
+        },
+        {
+            "spike_x" : 1190,
+            "spike_y": 410
+        },
+        {
+            "spike_x" : 1190,
+            "spike_y": 360
+        },
+        {
+            "spike_x" : 1190,
+            "spike_y": 310
+        },
+        {
+            "spike_x" : 1190,
+            "spike_y": 260
         }
     ],
 
-    "portal": 
+    "rocket": 
     {
-        "portal_x": 1250,
-        "portal_y": 410
+        "rocket_x": 1250,
+        "rocket_y": 410
     }
 }
