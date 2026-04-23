@@ -15,5 +15,6 @@
 | 16.04 | 3    | Player ja Level -luokkien testejä (rivikattavuus ~60%), tasojen lataaminen, raketti jolla voi lopettaa pelin, voittonäyttö, refaktorointiurakkaan valmistautumista |
 | 17.04 | 1    | README:n päivittelyä, dokumentaation korjailua, luokkakaavion päivittelyä, sekvenssikaavio pelin käynnistymisestä |
 | 19.04 | 3    | Pelisilmukan refaktorointi, pelin tilan vaihtuminen, käyttäjän syötteen käsittelyn erottelu omaan luokkaan menusta, tekstin piirtämisen parantelu, pientä hienosäätöä |
-| 20.04 | 2 | Raketin piirtäminen, kasa testejä (haarautumakattavuus > 95%), release kuntoon |
-| Yhteensä   | 30.5   | | 
+| 20.04 | 2    | Raketin piirtäminen, kasa testejä (haarautumakattavuus > 95%), release kuntoon |
+| 23.03 | 4.5  | Uusia (vaikeampia?) tasoja, este (piikkipallo), pelaajan elämä-systeemi, kuolema ja sen käsittely, mainin refaktorointia (loopit sun muut omassa moduulissa nyt), kentän ja pelaajan elämien viestiminen pelaajalle (tekstin piirto) |
+| Yhteensä   | 35  | | 
