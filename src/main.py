@@ -27,7 +27,7 @@ def draw_health(text):
 
 
 def init_game():
-    level = Level(5)
+    level = Level(1)
     level.generate()
 
     all_sprites, platforms = level.get_groups()
