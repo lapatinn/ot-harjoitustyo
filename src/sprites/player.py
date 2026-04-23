@@ -22,6 +22,8 @@ class Player(pygame.sprite.Sprite):
         self.moveleft = False
         self.moveright = False
 
+        self.health = 3
+
     def move(self):
         self.acc = vec(0, 0.5)
 
@@ -75,3 +77,10 @@ class Player(pygame.sprite.Sprite):
     def reset_pos(self):
         self.pos = vec((SCREEN_WIDTH - self.rect.width,
                        SCREEN_HEIGHT - 30))
+
+    def get_health_str(self):
+        string = f"Health: {self.health * "* "}"
+        return string
+
+    def hit(self):
+        self.health -= 1
