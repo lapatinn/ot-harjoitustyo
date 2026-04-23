@@ -22,10 +22,10 @@ Sovelluksella on lähtökohtaisesti yksi käyttäjä, eli yksi pelaaja.
   -  Alustojen välillä voi hyppiä TEHTY
   -  Alustan alareunaan törmää, mikä estää pääsemästä sen päälle suoraan alapuolelta
 -  Käyttäjä pääsee seuraavalle tasolle päästyään kentän maaliin asti TEHTY
-  - Maali on ovi / portaali, joka sijaitsee jossakin hankalasti tavoitettavassa paikassa TEHTY
+  - Maali on portaali, joka sijaitsee jossakin hankalasti tavoitettavassa paikassa TEHTY
   - Maaliin pääseminen lataa seuraavan kentän TEHTY
-  - Kentät muuttuvat vaikeammiksi
-    - Enemmän vihollisia?
+  - Kentät muuttuvat vaikeammiksi TEHTY
+    - Enemmän piikkejä?
     - Vaikeammat hypyt?
 
 - Käyttäjä voi edetä tasolta toiselle portaalien kautta TEHTY
@@ -33,12 +33,12 @@ Sovelluksella on lähtökohtaisesti yksi käyttäjä, eli yksi pelaaja.
 - Käyttäjä voi voittaa pelin pääsemällä raketille TEHTY
   - Pelin voi aloittaa uudelleen TEHTY
 
-- Käyttäjällä on rajoitettu määrä "elämiä", joiden loppuessa peli päättyy
-  - Elämät vähenevät yksi kerrallaan,  kun käyttäjä tekee kontaktia vihollisen kanssa
+- Käyttäjällä on rajoitettu määrä "elämiä", joiden loppuessa peli päättyy TEHTY
+  - Elämät vähenevät yksi kerrallaan, kun käyttäjä tekee kontaktia esteen kanssa TEHTY
   - Elämiä voi kerätä lisää
-  - Käyttäjä voi yrittää peliä uudelleen
-- Pelissä on vihollisia, jotka vähentävät käyttäjän elämiä
-  - Viholliset leijuvat käyttäjää kohti, käyttäjän on väistettävä niitä
+  - Käyttäjä voi yrittää peliä uudelleen TEHTY
+- Pelissä on esteitä, jotka vähentävät käyttäjän elämiä TEHTY
+  - Piikit sijaitsevat tahallaan mahdollisimman ärsyttävissä paikoissa, käyttäjän on väistettävä niitä TEHTY
 - Pelikentillä on kolikoita, joita käyttäjä voi kerätä
   - Esim. 5 kolikkoa antaa käyttäjälle elämän
 
