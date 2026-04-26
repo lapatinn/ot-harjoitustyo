@@ -21,21 +21,21 @@ class TestLevel(unittest.TestCase):
 
         all_sprites, platforms = self.level.get_groups()
 
-        self.assertEqual(len(all_sprites.sprites()), 7)
+        self.assertEqual(len(all_sprites.sprites()), 5)
 
     def test_generate_group_size_platforms(self):
         self.level.generate()
 
         all_sprites, platforms = self.level.get_groups()
 
-        self.assertEqual(len(platforms.sprites()), 5)
+        self.assertEqual(len(platforms.sprites()), 2)
 
     def test_clear_groups_clears_groups(self):
         self.level.generate()
         all_sprites, platforms = self.level.get_groups()
 
-        self.assertEqual(len(all_sprites.sprites()), 7)
-        self.assertEqual(len(platforms.sprites()), 5)
+        self.assertEqual(len(all_sprites.sprites()), 5)
+        self.assertEqual(len(platforms.sprites()), 2)
 
         self.level.clear_groups()
 
@@ -79,12 +79,12 @@ class TestLevel(unittest.TestCase):
 
     @patch("pygame.sprite.spritecollide")
     def test_check_portal_doesnt_trigger_if_level_doesnt_exist_and_collisions(self, mock_spritecollide):
-        self.level = Level(3)
+        self.level = Level(5)
         mock_collision = MagicMock()
         mock_spritecollide.return_value = [mock_collision]
 
         self.assertFalse(self.level.check_portal())
-        self.assertEqual(self.level.level_id, 3)
+        self.assertEqual(self.level.level_id, 5)
 
     @patch("pygame.sprite.spritecollide")
     def test_check_portal_doesnt_trigger_if_level_doesnt_exist_and_no_collisions(self, mock_spritecollide):

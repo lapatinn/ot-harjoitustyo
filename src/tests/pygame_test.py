@@ -1,6 +1,6 @@
 import unittest
 import pygame
-from main import draw_text
+from text_renderer import draw_text
 
 
 class TestPygame(unittest.TestCase):
@@ -12,6 +12,7 @@ class TestPygame(unittest.TestCase):
         self.y = 320
 
     def test_draw_text_returns_rect(self):
+        window = pygame.display.set_mode((1280,720))
         test_rect = draw_text(
-            self.text, self.font, self.color, self.x, self.y)
+            window, self.text, self.font, self.color, self.x, self.y)
         self.assertIsInstance(test_rect, pygame.Rect)
