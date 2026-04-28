@@ -12,6 +12,7 @@ Tasohyppelypeli **pygame-kirjastolla**, jossa pieni vihreä ukkeli (Bob) seikkai
 - [Työaikakirjanpito](https://github.com/lapatinn/ot-harjoitustyo/blob/main/dokumentaatio/tuntikirjanpito.md)
 - [Changelog](https://github.com/lapatinn/ot-harjoitustyo/blob/main/dokumentaatio/changelog.md)
 - [Arkkitehtuuri](https://github.com/lapatinn/ot-harjoitustyo/blob/main/dokumentaatio/arkkitehtuuri.md)
+- [Käyttöohje](https://github.com/lapatinn/ot-harjoitustyo/blob/main/dokumentaatio/kayttoohje.md)
 
 
 ## Asennus
