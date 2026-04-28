@@ -19,4 +19,4 @@ poetry run invoke start
 
 Pelin voi aloittaa painamalla Play-näppäintä.
 
-Pelin voi voittaa etenemällä tasolta tasolle liilojen portaalien kautta. Muista väistää piikkipalloja!
+Pelin voi voittaa etenemällä tasolta tasolle liilojen portaalien kautta. Viimeisellä tasolla on raketti, jolla voit paeta. Muista väistää piikkipalloja!
