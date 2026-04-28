@@ -6,7 +6,22 @@ vec = pygame.math.Vector2
 
 
 class Player(pygame.sprite.Sprite):
+    """Class for player.
+    
+    Attributes:
+        surface: Image of playermodel.
+        rect: Rect-object of playermodel.
+        pos: Initial position of player, represented by vector.
+        vel: Vector object representing player velocity.
+        acc: Player acceleration.
+        jumping: State of player jumping.
+        moveleft: State of player movement left.
+        moveright: State of player movement right.
+        health: Initial player health."""
+
     def __init__(self):
+        """Constructor for class, intiializes player."""
+
         super().__init__()
         self.surface = pygame.image.load("src/assets/player.bmp")
         self.rect = self.surface.get_rect(
@@ -25,6 +40,8 @@ class Player(pygame.sprite.Sprite):
         self.health = 3
 
     def move(self):
+        """Checks player movement direction, controls player position with acceleration."""
+
         self.acc = vec(0, 0.5)
 
         if self.moveright:
@@ -42,6 +59,11 @@ class Player(pygame.sprite.Sprite):
         self.rect.midbottom = self.pos
 
     def check_floor_collision(self, group):
+        """Checks player collision with given group.
+        
+        Args:
+            group: Sprite group with which player collision is to be checked. Usually platforms."""
+
         collisions = pygame.sprite.spritecollide(self, group, False)
 
         if self.vel.y > 0:
@@ -53,6 +75,8 @@ class Player(pygame.sprite.Sprite):
                     self.surface = pygame.image.load("src/assets/player.bmp")
 
     def jump(self, group):
+        """Triggers player jump if player is standing on a platform."""
+
         collisions = pygame.sprite.spritecollide(self, group, False)
         if collisions and not self.jumping:
             self.jumping = True
@@ -60,11 +84,15 @@ class Player(pygame.sprite.Sprite):
             self.surface = pygame.image.load("src/assets/player2.bmp")
 
     def cancel_jump(self):
+        """Cancels jumping if player is jumping and jump-button is released."""
+
         if self.jumping:
             if self.vel.y < -3:
                 self.vel.y = -3
 
     def change_direction(self, dir):
+        """Changes direction of player movement according to variable which is accessed by GameEventHandler."""
+    
         if dir == "left":
             self.moveleft = True
         if dir == "right":
@@ -75,12 +103,20 @@ class Player(pygame.sprite.Sprite):
             self.moveleft = False
 
     def reset_pos(self):
+        """Resets player position when new level is loaded."""
+
         self.pos = vec((SCREEN_WIDTH - self.rect.width,
                        SCREEN_HEIGHT - 30))
 
     def get_health_str(self):
+        """Returns player health.
+        
+        Returns:
+            Player health as string of *'s."""
         string = f"Health: {self.health * "* "}"
         return string
 
     def hit(self):
+        """Lowers player health on damage."""
+
         self.health -= 1

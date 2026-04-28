@@ -9,7 +9,14 @@ from config import LEVEL_COUNT
 
 
 class Level:
+    """Class for loading level data and handling in-game events.
+    
+    Attributes:
+        level_id: Initial id of level."""
+
     def __init__(self, level_id=int):
+        """Constructor for class. Creates and inits required groups."""
+
         self.level_id = level_id
         self.player = Player()
         self.floor = Floor()
@@ -27,6 +34,8 @@ class Level:
         self.platforms.add(self.floor)
 
     def generate(self):
+        """Loads coordinates for platforms, portals, spikes and rocket for given level."""
+
         level_data = self.get_level_data()
 
         for dict in level_data["platforms"]:
@@ -60,15 +69,30 @@ class Level:
                 self.all_sprites.add(spike)
 
     def get_groups(self):
+        """Updates when new level loaded.
+        
+        Returns:
+            Group of all sprites, group of only platforms."""
+
         return self.all_sprites, self.platforms
 
     def get_level_data(self):
+        """Reads json file from src/levels.
+        
+        Returns:
+            level_data: Dict containing coordinates for objects to be loaded into groups."""
+
         f = open(f"src/levels/level_{str(self.level_id)}.json")
         level_data = json.load(f)
 
         return level_data
 
     def check_portal(self):
+        """Checks collision with portal, which triggers next level.
+        
+        Returns:
+            True if player collides with portal."""
+
         collisions = pygame.sprite.spritecollide(
             self.player, self.portal, True)
 
@@ -81,6 +105,11 @@ class Level:
                 return True
 
     def check_rocket(self):
+        """Checks collision with rocket, which triggers victory.
+        
+        Returns:
+            True if player collides with rocket."""
+
         collisions = pygame.sprite.spritecollide(
             self.player, self.rocket, True)
 
@@ -88,6 +117,11 @@ class Level:
             return True
 
     def check_damage(self):
+        """Checks collision with spike, which triggers damage.
+        
+        Returns:
+            True if player collides with spike."""
+
         collisions = pygame.sprite.spritecollide(
             self.player, self.spikes, True)
 
@@ -97,6 +131,8 @@ class Level:
                 return True
 
     def clear_groups(self):
+        """Clears sprite groups when new level is to be loaded."""
+
         self.all_sprites.empty()
         self.all_sprites.add(
             self.player,
