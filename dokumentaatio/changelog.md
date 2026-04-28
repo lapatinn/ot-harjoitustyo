@@ -79,3 +79,10 @@
     - Yritin ajatuksella rakentaa edes jollain tavalla haastavia tasoja, jotta pelillä olisi arvoa muutenkin kuin pelkkänä harjoitustyönä
     - Tällä hetkellä tasoja on 5, niitä tulee lisää, kenties jopa 10
     - Tasot muuttuvat progressiivisesti vaikeammiksi, piikkejä tulee enemmän ja vaaditaan tarkempia ja harkitumpia hyppyjä
+- Docstringit
+    - Lähestulkoon kaikki luokat, metodit ja funktiot kuvailtu nyt docstringeillä.
+- Käyttöohje
+- Arkkitehtuurikuvausta päivitetty
+    - Hakemistorakenne selitetty
+    - Keskeisin toiminnallisuus selitetty
+    - Konkreettisia esimerkkejä luokkien välisestä yhteistyöstä
