@@ -11,6 +11,7 @@ Projektin lähdekoodi on jaettu useaan moduuliin, jotka on ryhmitelty kansioihin
 - **config.py:** Vakiomuuttujat, ikkunan koko, fps, pelaajan kiihtyvyys ja kitka, fontit, tasojen määrä.
 - **event_handler.py:** Pelaajan syötteen valvonnasta vastaavat luokat.
 - **game.py:** Peli- ja menusilmukat. Alustusfuntkiot.
+- **level.py:** Tasojen lataaminen ja generointi. Valvoo pelaajan interaktioita portaalien ja piikkien kanssa.
 - **main.py:** Pääohjelma.
 - **text_renderer.py:** Tekstin piirtämisestä vastaavat funtkiot.
 - **tasks.py:** Invoke-taskit.
