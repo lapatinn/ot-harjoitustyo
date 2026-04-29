@@ -10,7 +10,7 @@ from config import LEVEL_COUNT
 
 class Level:
     """Class for loading level data and handling in-game events.
-    
+
     Attributes:
         level_id: Initial id of level."""
 
@@ -70,7 +70,7 @@ class Level:
 
     def get_groups(self):
         """Updates when new level loaded.
-        
+
         Returns:
             Group of all sprites, group of only platforms."""
 
@@ -78,7 +78,7 @@ class Level:
 
     def get_level_data(self):
         """Reads json file from src/levels.
-        
+
         Returns:
             level_data: Dict containing coordinates for objects to be loaded into groups."""
 
@@ -89,7 +89,7 @@ class Level:
 
     def check_portal(self):
         """Checks collision with portal, which triggers next level.
-        
+
         Returns:
             True if player collides with portal."""
 
@@ -106,7 +106,7 @@ class Level:
 
     def check_rocket(self):
         """Checks collision with rocket, which triggers victory.
-        
+
         Returns:
             True if player collides with rocket."""
 
@@ -118,7 +118,7 @@ class Level:
 
     def check_damage(self):
         """Checks collision with spike, which triggers damage.
-        
+
         Returns:
             True if player collides with spike."""
 

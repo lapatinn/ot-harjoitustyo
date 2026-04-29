@@ -6,7 +6,7 @@ pygame.init()
 
 class Floor(pygame.sprite.Sprite):
     """Class for floor platform.
-    
+
     Attributes:
         surface: Pygame surface.
         rect: Rect object for surface."""
@@ -23,7 +23,7 @@ class Floor(pygame.sprite.Sprite):
 
 class Platform(pygame.sprite.Sprite):
     """Class for floating platforms.
-    
+
     Attributes:
         pos_x: X coordinate of platform.
         pos_y: Y coordinate of platform."""

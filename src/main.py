@@ -11,6 +11,7 @@ window = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 def main():
     clock = pygame.time.Clock()
     menu_events, game_state = init_menu()
+    level, game_events, all_sprites, platforms = init_game()
 
     while True:
         clock.tick(FPS)
@@ -18,7 +19,6 @@ def main():
         if game_state == "menu":
             res = menu_loop(window, menu_events, "Main menu", "Play")
             if res == "game":
-                level, game_events, all_sprites, platforms = init_game()
                 game_state = "game"
 
         elif game_state == "game":

@@ -8,7 +8,7 @@ from level import Level
 
 def init_menu():
     """Generates required entities for menu.
-    
+
     Returns:
         MenuEventHandler-entity and inital gamestate"""
 
@@ -17,7 +17,7 @@ def init_menu():
 
 def init_game():
     """Generates required entities for game.
-    
+
     Returns:
         Level-object, GameEventHandler-entity, platform group, all_sprites group."""
 
@@ -35,15 +35,14 @@ def menu_loop(window,
               menu_events=MenuEventHandler,
               top_text=str,
               bottom_text=str):
-    
     """Main menu loop function. Draws text and handles inputs.
-    
+
     Args:
         window: Pygame window object.
         menu_events: MenuEventHandler-object.
         top_text: Text to be drawn on top.
         bottom_text: Text to be drawn on bottom.
-    
+
     Returns:
         None if no inputs, "game" or "menu" if corresponding buttons pressed.
         """
@@ -63,8 +62,7 @@ def menu_loop(window,
               top_text,
               TOP_FONT,
               TOP_COLOR,
-              top_text_x,
-              top_text_y)
+              (top_text_x, top_text_y))
 
     bottom_text_color = TOP_COLOR if menu_events.is_hovering(bottom_text_x,
                                                              bottom_text_y,
@@ -75,8 +73,7 @@ def menu_loop(window,
                                  bottom_text,
                                  BOTTOM_FONT,
                                  bottom_text_color,
-                                 bottom_text_x,
-                                 bottom_text_y)
+                                 (bottom_text_x, bottom_text_y))
 
     return menu_events.handle_events(bottom_text, bottom_text_rect)
 
@@ -86,16 +83,15 @@ def game_loop(window,
               platforms=pygame.sprite.Group,
               level=Level,
               game_events=GameEventHandler):
-    
     """Main game loop function. Blits entities and handles inputs.
-    
+
     Args:
         window: Pygame window object.
         all_sprites: Sprite group containing all sprites to be drawn.
         platfomrs: Sprite group containing platfrom objects.
         level: Level object.
         game_events; GameEventHandler object.
-        
+
     Returns:
         None if no events, "victory" or "death" according to events.
         """

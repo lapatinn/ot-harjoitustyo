@@ -7,7 +7,7 @@ vec = pygame.math.Vector2
 
 class Player(pygame.sprite.Sprite):
     """Class for player.
-    
+
     Attributes:
         surface: Image of playermodel.
         rect: Rect-object of playermodel.
@@ -60,7 +60,7 @@ class Player(pygame.sprite.Sprite):
 
     def check_floor_collision(self, group):
         """Checks player collision with given group.
-        
+
         Args:
             group: Sprite group with which player collision is to be checked. Usually platforms."""
 
@@ -87,12 +87,12 @@ class Player(pygame.sprite.Sprite):
         """Cancels jumping if player is jumping and jump-button is released."""
 
         if self.jumping:
-            if self.vel.y < -3:
-                self.vel.y = -3
+            self.vel.y = max(self.vel.y, -3)
 
     def change_direction(self, dir):
-        """Changes direction of player movement according to variable which is accessed by GameEventHandler."""
-    
+        """Changes direction of player movement according to variable,
+        which is accessed by GameEventHandler."""
+
         if dir == "left":
             self.moveleft = True
         if dir == "right":
@@ -110,7 +110,7 @@ class Player(pygame.sprite.Sprite):
 
     def get_health_str(self):
         """Returns player health.
-        
+
         Returns:
             Player health as string of *'s."""
         string = f"Health: {self.health * "* "}"

@@ -1,25 +1,24 @@
 from config import HEALTH_FONT, HEALTH_COLOR, SCREEN_WIDTH
 
 
-def draw_text(window, text, font, text_color, x, y):
+def draw_text(window, text, font, text_color, coordinates):
     """Draws text on screen.
-    
+
     Args:
         window: Pygame window onto which text is to be drawn.
         text: String to be drawn.
         font: Pygame font object, determines font.
         text_color: RBG value for text.
-        x: X coordinate of text to be drawn.
-        y: Y coordinate of text to be drawn."""
+        coordinates: Tuple containing x and y values."""
 
     img = font.render(text, True, text_color)
-    window.blit(img, (x, y))
-    return img.get_rect(topleft=(x, y))
+    window.blit(img, coordinates)
+    return img.get_rect(topleft=coordinates)
 
 
 def draw_health(window, text):
     """Draws player health.
-    
+
     Args:
         window: Pygame window onto which player health is to be drawn.
         text: Player health."""
@@ -34,7 +33,7 @@ def draw_health(window, text):
 
 def draw_level_id(window, text):
     """Draws current level id.
-    
+
     Args:
         window: Pygame window onto which level id is to be drawn.
         text: Level id"""

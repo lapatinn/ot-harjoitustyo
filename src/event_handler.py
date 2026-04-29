@@ -5,7 +5,7 @@ from sprites.player import Player
 
 class GameEventHandler:
     """Class for handling user inputs (events) in game loop. 
-    
+
     Attributes:
         player: Entity of Player-class, needed for movement. 
         platforms: Group of Platform-entities, needed for collision detection in jumping.
@@ -44,7 +44,7 @@ class GameEventHandler:
 
 class MenuEventHandler:
     """Class for handling user inputs (events) in menu loop.
-    
+
     Attributes:
         bottom_text: Bottom text drawn in menu, deetermined in main game loop. 
         bottom_text_rect: Rect object of bottom text for collision detection.
@@ -52,7 +52,7 @@ class MenuEventHandler:
 
     def handle_events(self, bottom_text=str, bottom_text_rect=pygame.Rect):
         """Method for handling user inputs, called in menuloop.
-        
+
         Returns:
             "menu" if "Main menu" button clicked. 
             "game if "Play" or "Try again" clicked.
@@ -64,13 +64,16 @@ class MenuEventHandler:
 
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if event.button == 1:
-                    if bottom_text_rect.collidepoint(event.pos):
-                        if bottom_text == "Main menu":
-                            return "menu"
-                        if bottom_text == "Play":
-                            return "game"
-                        if bottom_text == "Try again":
-                            return "game"
+                    return self._change_gamestate(bottom_text, bottom_text_rect, event)
+
+    def _change_gamestate(self, bottom_text=str, bottom_text_rect=pygame.Rect, event=pygame.event):
+        if bottom_text_rect.collidepoint(event.pos):
+            if bottom_text == "Main menu":
+                return "menu"
+            if bottom_text == "Play":
+                return "game"
+            if bottom_text == "Try again":
+                return "game"
 
     def is_hovering(self, bt_x, bt_y, bt_w, bt_h):
         """Checks mouse hover over button.
