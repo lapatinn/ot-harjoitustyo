@@ -1,6 +1,7 @@
 import pygame
 from config import (SCREEN_HEIGHT, SCREEN_WIDTH, FPS)
-from game import menu_loop, game_loop, init_game, init_menu
+from game import game_loop, init_game
+from ui.ui import menu_loop, init_menu
 
 pygame.init()
 pygame.display.set_caption("Portal Bob")
