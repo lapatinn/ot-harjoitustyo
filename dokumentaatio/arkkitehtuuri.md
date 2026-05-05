@@ -10,7 +10,7 @@ Projektin lähdekoodi on jaettu useaan moduuliin, jotka on ryhmitelty kansioihin
 
 - **config.py:** Vakiomuuttujat, ikkunan koko, fps, pelaajan kiihtyvyys ja kitka, fontit, tasojen määrä.
 - **event_handler.py:** Pelaajan syötteen valvonnasta vastaavat luokat.
-- **game.py:** Peli- ja menusilmukat. Alustusfuntkiot.
+- **game.py:** Pelisilmukka, pelin alustusfunktio.
 - **level.py:** Tasojen lataaminen ja generointi. Valvoo pelaajan interaktioita portaalien ja piikkien kanssa.
 - **main.py:** Pääohjelma.
 - **text_renderer.py:** Tekstin piirtämisestä vastaavat funtkiot.
@@ -36,15 +36,22 @@ Projektin lähdekoodi on jaettu useaan moduuliin, jotka on ryhmitelty kansioihin
 - Projektin yksikkötestit.
 - Jaettu tiedostoihin testattavan alueen mukaan.
 
+### src/ui/
+
+- ui.py
+- Pitää sisällään menu-silmukan ja alustusfunktion.
+
 ## Sovelluslogiikka
 
 ### Keskeisin toiminnallisuus
 
 Projektin sovelluslogiikka on pyritty erottamaan käyttöliittymäkoodista. Logiikka perustuu lähinnä Level, GameEventHandler ja Player -luokkien yhteistyöhön. GameEventHandler valvoo käyttäjän syötteitä ja kutsuu Player-luokan metodeja niiden mukaan.
 
-Level-luokka valvoo pelaajan siirtymiä portaalien kautta tasolta toiselle ja muodostaa uusia tasoja json-tiedostojen pohjalta. Json-tiedostot ovat vakioita, eivätkä niiden sisältämät arvot muutu pelin aikana.
+Level-luokka valvoo pelaajan siirtymiä portaalien kautta tasolta toiselle ja muodostaa uusia tasoja json-tiedostojen pohjalta. Json-tiedostot ovat vakioita, eivätkä niiden sisältämät arvot muutu pelin aikana. Tiedostot sisältävät sanakirjamaisesti tallennettuja koordinaatteja platformeille, portaaleille, piikeille ja raketille. Level-luokka lukee level_id:n mukaisen json-tiedoston ja muodostaa sen pohjalta ladattavan tason.
 
-Player-luokka pitää sisällään pelaajan liikettä ohjaavat metodit. Player suorittaa myös kollisionvalvontaa hyppyjä varten.
+Player-luokka pitää sisällään pelaajan liikettä ohjaavat metodit ja suorittaa myös kollisionvalvontaa hyppyjä varten.
+
+Main.py sisältää pelin pääsilmukan, jossa on haara jokaista pelin tilaa kohden. Pääsilmukka kutsuu joko src/ui/ui.py:ssa sijaitsevaa menu_loop-funktiota tai src/game.py:ssa sijaitsevaa game_loop-funktiota. Kutsuttava loop-funktio palauttaa merkkijonon, jos pelin tilan muuttava tapahtuma tapahtuu. Pelin alussa pääsilmukan game_state muuttuja alustetaan arvolla "menu". Esimerkiksi kun pelaaja painaa aloitusnäytön play-nappia, menu_loop palauttaa merkkijonon "game", jonka pääsilmukka tallentaa muuttujaan ja asettaa game_state muuttujan arvoksi. Tällöin pääsilmukan suoritus siirtyy seuraavaan haaraan ja aletaan kutsua game_loop-funktiota.
 
 ### Esimerkkejä toiminnallisuudesta
 
@@ -54,7 +61,11 @@ Pelaajan törmätessä portaaliin Level-luokka tarkistaa nykyisen tason ja aloit
 
 ## Luokkakaavio
 
-Sovelluksen tämänhetkinen luokkarakenne. Level-luokka pitää sisällään pelaajan ja kaikki spritet, joiden kanssa pelaaja voi kanssakäydä. Level-luokka tarkistaa törmäämiset esim. portaalien, rakettien ja piikkien kanssa. GameEventHandler ja MenuEventHandler -luokat vastaavat käyttäjän syötteiden valvonnasta ja hallinnasta. 
+Main-tiedosto tuntee luokat MenuEventHandler, GameEventHandler ja Level. MenuEventHandler valvoo ja hallitsee käyttäjän syötteitä pelin valikkonäkymissä. GameEventHandler valvoo käyttäjän syötteitä varsinaisen pelin sisällä ja kutsuu Player-luokan metodeja pelaajan liikkeen aikaansaamiseksi. Level-luokka pitää sisällään kaiken näytölle piirrettävän ja rakentaa pelin tasot. Level-luokka luo pelaajaolion, joka välitetään myös GameEventHandler-luokalle. 
+
+Level luokka ei kuitenkaan piirrä tarvittavia olioita näytölle, vaan piirtäminen (pygamen blit-metodilla) tapahtuu game_loop-funktiossa. Level-luokan sisältämät näytölle piirrettävät oliot perivät pygamen Sprite-luokan, ja ne on jaettu pygamen sprite groupeihin. Ryhmä all_sprites pitää sisällään kaikki oliot ja ryhmä platforms pitää sisällään oliot, joiden kanssa pelaajan odotetaan törmäävän. Game_loop piirtää jokaisella iteraatiolla all_sprites-ryhmän sisältämät oliot. 
+
+Jokaisella tasolla voi olla yksi pelaaja, yksi lattia, yksi portaali ja ja yksi raketti. Lisäksi tasolla voi olla monta platformia ja monta piikkipalloa. 
 
 ```mermaid
  classDiagram
@@ -76,7 +87,41 @@ Sovelluksen tämänhetkinen luokkarakenne. Level-luokka pitää sisällään pel
 
 ## Sekvenssikaavio
 
-Pelin käynnistäminen, siirtyminen menusta pelisilmukkaan ja pelin päättyminen luokkakaaviona. 
+Pelin alustaminen ja siirtymä mainin pääsilmukkaan:
+
+```mermaid
+ sequenceDiagram
+    main->>menu_events: MenuEventHandler()
+    main->>game_state: "menu"
+
+    main->>level: Level(1)
+    main->>game_events: GameEventHandler()
+    main->>all_sprites: level.all_sprites
+    main->>platforms: level.platforms
+```
+
+Tämän jälkeen suoritus siirtyy silmukkaan, jossa pelin tila muuttuu game_state-muuttujan mukaan. Tässä vaiheessa game_state on "menu". Menu_loop funktio ottaa parametreiksi näytölle piirrettävän tekstin, ikkunan ja MenuEventHandler-olion. Tämän ansiosta samaa funktiota voidaan käyttää pelin kaikissa valikkonäkymissä.
+
+```mermaid
+ sequenceDiagram
+    main->>res: menu_loop(window, menu_events, "Main menu", "Play")
+    ui.menu_loop-->>res: "game"
+    res->>game_state: "game"
+```
+
+Tämän jälkeen pääohjelman suoritus siirtyy seuraavaan haaraan, jossa res-muuttujaan tallennetaan nyt game_loop-funktion palautusarvo, joka määräytyy pelaajan toiminnan mukaan. Esimerkiksi jos pelaaja kuolee, palautetaan "death", jos pelaaja pääsee raketille asti, palautetaan "victory".
+
+
+
+
+
+
+
+
+
+
+
+Pääohjelma alustaa syötteenvalvonnasta vastaavan luokan ja pelin tilan. Kun peli aloitetaan, init_game() metodi luo tarvittavat oliot (Level, GameEventHandler, Player, Platform) ja palauttaa ne. 
 
 ```mermaid
  sequenceDiagram
@@ -116,8 +161,6 @@ Pelin käynnistäminen, siirtyminen menusta pelisilmukkaan ja pelin päättymine
 
     main->>game_state: "victory"
 ```
-
-Pääohjelma alustaa syötteenvalvonnasta vastaavan luokan ja pelin tilan. Kun peli aloitetaan, init_game() metodi luo tarvittavat oliot (Level, GameEventHandler, Player, Platform) ja palauttaa ne. 
 
 Pelin tilan muutos "menu":sta "game":ksi siirtää suorituksen toiseen päähohjelman haaraan ja varsinainen pelisilmukka käynnistyy. Pelisilmukalle välitetään ikkuna ja luodut oliot. 
 
