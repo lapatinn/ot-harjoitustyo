@@ -25,7 +25,7 @@ def game_loop(window,
               platforms=pygame.sprite.Group,
               level=Level,
               game_events=GameEventHandler):
-    """Main game loop function. Blits entities and handles inputs.
+    """Main game loop function. Blits entities and handles inputs using EventHandler-class.
 
     Args:
         window: Pygame window object.
