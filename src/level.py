@@ -82,8 +82,8 @@ class Level:
         Returns:
             level_data: Dict containing coordinates for objects to be loaded into groups."""
 
-        f = open(f"src/levels/level_{str(self.level_id)}.json")
-        level_data = json.load(f)
+        with open(f"src/levels/level_{str(self.level_id)}.json") as f:
+            level_data = json.load(f)
 
         return level_data
 
