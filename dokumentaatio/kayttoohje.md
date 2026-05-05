@@ -19,4 +19,6 @@ poetry run invoke start
 
 Pelin voi aloittaa painamalla Play-näppäintä.
 
+Pelaaja liikkuu vasemmalle / oikealle A ja D näppäimillä. Pelaaja hyppää välilyönnillä. Lyhyt painallus saa aikaan pienen hypyn, pitkä painallus pitkän hypyn.
+
 Pelin voi voittaa etenemällä tasolta tasolle liilojen portaalien kautta. Viimeisellä tasolla on raketti, jolla voit paeta. Muista väistää piikkipalloja!
