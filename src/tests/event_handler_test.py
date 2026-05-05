@@ -9,10 +9,6 @@ from config import ACC, SCREEN_WIDTH, SCREEN_HEIGHT
 
 class TestGameEventHandler(unittest.TestCase):
     def setUp(self):
-        pygame.init()
-        pygame.display.set_mode((100, 100))
-        pygame.event.clear()
-
         self.mock_player = MagicMock(Player)
         self.eh = GameEventHandler(self.mock_player, pygame.sprite.Group())
 
@@ -107,10 +103,6 @@ class TestGameEventHandler(unittest.TestCase):
 
 class TestMenuEventHandler(unittest.TestCase):
     def setUp(self):
-        pygame.init()
-        pygame.display.set_mode((100, 100))
-        pygame.event.clear()
-
         self.eh = MenuEventHandler()
 
     @patch("pygame.event.get")

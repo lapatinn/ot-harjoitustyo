@@ -12,6 +12,7 @@ class TestPygame(unittest.TestCase):
         self.y = 320
 
     def test_draw_text_returns_rect(self):
+        # Mockaa tää
         window = pygame.display.set_mode((1280, 720))
         test_rect = draw_text(
             window, self.text, self.font, self.color, (self.x, self.y))
