@@ -129,6 +129,18 @@ class TestMenuEventHandler(unittest.TestCase):
         self.assertEqual(self.eh.handle_events("Main menu", mock_rect), "menu")
 
     @patch("pygame.event.get")
+    def test_mouse_click_returns_game_when_dead(self, mock_event_q):
+        mock_event = MagicMock()
+        mock_event.type = pygame.MOUSEBUTTONDOWN
+        mock_event_q.return_value = [mock_event]
+        mock_event.button = 1
+
+        mock_rect = MagicMock()
+        mock_rect.collidepoint.return_value = True
+
+        self.assertEqual(self.eh.handle_events("Try again", mock_rect), "game")
+
+    @patch("pygame.event.get")
     def test_mouse_click_returns_game_when_in_main_menu(self, mock_event_q):
         mock_event = MagicMock()
         mock_event.type = pygame.MOUSEBUTTONDOWN
@@ -179,4 +191,9 @@ class TestMenuEventHandler(unittest.TestCase):
 
     @patch("pygame.mouse.get_pos")
     def test_is_hovering_returns_correct_value(self, mock_mouse):
-        mock_pos = 1, 1
+        mock_pos = 10, 10
+        mock_mouse.return_value = mock_pos
+
+        hover = self.eh.is_hovering(5, 5, 6, 6)
+
+        self.assertTrue(hover)

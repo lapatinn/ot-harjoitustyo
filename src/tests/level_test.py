@@ -30,6 +30,14 @@ class TestLevel(unittest.TestCase):
 
         self.assertEqual(len(platforms.sprites()), 2)
 
+    def test_generate_last_level_with_rocket(self):
+        level = Level(5)
+
+        level.generate()
+        all_sprites, platforms = level.get_groups()
+
+        self.assertEqual(len(platforms), 6)
+
     def test_clear_groups_clears_groups(self):
         self.level.generate()
         all_sprites, platforms = self.level.get_groups()
@@ -94,3 +102,44 @@ class TestLevel(unittest.TestCase):
 
         self.assertFalse(self.level.check_portal())
         self.assertEqual(self.level.level_id, 3)
+
+    @patch("pygame.sprite.spritecollide")
+    def test_check_rocket_returns_true_if_collision(self, mock_spritecollide):
+        mock_collision = MagicMock()
+        mock_spritecollide.return_value = [mock_collision]
+
+        self.assertTrue(self.level.check_rocket())
+
+    @patch("pygame.sprite.spritecollide")
+    def test_check_rocket_returns_false_if_no_collision(self, mock_spritecollide):
+        mock_spritecollide.return_value = None
+
+        self.assertFalse(self.level.check_rocket())
+
+    @patch("pygame.sprite.spritecollide")
+    def test_check_damage_lowers_health_if_collision(self, mock_spritecollide):
+        mock_collision = MagicMock()
+        mock_spritecollide.return_value = [mock_collision]
+
+        self.level.check_damage()
+
+        self.assertEqual(self.level.player.health, 2)
+
+    @patch("pygame.sprite.spritecollide")
+    def test_check_damage_doesnt_lower_health_if_no_collision(self, mock_spritecollide):
+        mock_spritecollide.return_value = None
+
+        self.level.check_damage()
+
+        self.assertEqual(self.level.player.health, 3)
+
+    @patch("pygame.sprite.spritecollide")
+    def test_check_damage_returns_true_if_zero_health(self, mock_spritecollide):
+        mock_collision = MagicMock()
+        mock_spritecollide.return_value = [mock_collision]
+
+        self.level.check_damage()
+        self.level.check_damage()
+        self.level.check_damage()
+
+        self.assertTrue(self.level.check_damage())
