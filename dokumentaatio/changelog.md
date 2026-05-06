@@ -86,3 +86,11 @@
     - Hakemistorakenne selitetty
     - Keskeisin toiminnallisuus selitetty
     - Konkreettisia esimerkkejä luokkien välisestä yhteistyöstä
+ 
+# Viikko 7
+
+- Testejä korjattu
+- Dokumentaatiota päivitetty
+- Main.py lisätty takaisin testikattavuuden piiriin
+    - Laski haarautumakattavuutta tuntuvasti
+    - Vaikea kirjoittaa testejä
