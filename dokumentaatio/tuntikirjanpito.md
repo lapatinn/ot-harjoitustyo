@@ -21,5 +21,5 @@
 | 28.04 | 2    | Docstringit (melkein) kaikille luokille, metodeille ja funktioille, käyttöohje, arkkitehtuurikuvauksen päivittäminen, laajentaminen ja täsmentäminen |
 | 29.04 | 0.5  | Pylint virheiden korjailua |
 | 05.05 | 1    | Pylint virheiden korjailua, pieni muutos hakemistorakenteeseen, dokumentaation päivittelyä |
-| 06.05 | 1    | Dokumentaation päivittelyä (arkkitehtuurikuvauksen kaaviot ja selitykset) |
-| Yhteensä   | 40.5  | | 
+| 06.05 | 2    | Dokumentaation päivittelyä (arkkitehtuurikuvauksen kaaviot ja selitykset), testien korjailua ja kirjoittelua |
+| Yhteensä   | 41.5  | | 
