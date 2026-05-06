@@ -19,5 +19,7 @@
 | 23.04 | 4.5  | Uusia (vaikeampia?) tasoja, este (piikkipallo), pelaajan elämä-systeemi, kuolema ja sen käsittely, mainin refaktorointia (loopit sun muut omassa moduulissa nyt), kentän ja pelaajan elämien viestiminen pelaajalle (tekstin piirto) |
 | 26.04 | 1    | Testien korjailua, arkkitehtuurikuvauksen parantelua |
 | 28.04 | 2    | Docstringit (melkein) kaikille luokille, metodeille ja funktioille, käyttöohje, arkkitehtuurikuvauksen päivittäminen, laajentaminen ja täsmentäminen |
-| 29.04 | 0.5 | Pylint virheiden korjailua |
-| Yhteensä   | 38.5  | | 
+| 29.04 | 0.5  | Pylint virheiden korjailua |
+| 05.05 | 1    | Pylint virheiden korjailua, pieni muutos hakemistorakenteeseen, dokumentaation päivittelyä |
+| 06.05 | 1    | Dokumentaation päivittelyä (arkkitehtuurikuvauksen kaaviot ja selitykset) |
+| Yhteensä   | 40.5  | | 
