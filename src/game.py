@@ -30,7 +30,7 @@ def game_loop(window,
     Args:
         window: Pygame window object.
         all_sprites: Sprite group containing all sprites to be drawn.
-        platfomrs: Sprite group containing platfrom objects.
+        platforms: Sprite group containing platfrom objects.
         level: Level object.
         game_events; GameEventHandler object.
 
