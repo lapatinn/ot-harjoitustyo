@@ -17,6 +17,8 @@ Peli on asennettu ja pelattu alusta loppuun seuraavilla käyttöjärjestelmillä
 - Cubbli linux
 - Arch linux
 - WSL Ubuntu (Windows subsystem for linux, Windows 11)
-- Helsingin yliopiston linux-etätyöasema
+- Helsingin yliopiston linux-etätyöasema (Ommnissa Horizon, selaimella)
 
 Kyseisillä käyttöjärjestelmillä on myös suoritettu automatisoidut yksikkötestit ja generoitu kattavuusraportti.
+
+Linux-etätyöasemalla (selainversio) pelin suorituskyky on huonompi kuin oikealla raudalla, mikä saattaa vaikuttaa pelikokemukseen negatiivisesti. Kaikilla muilla käyttöjärjestelmillä peli toimi oikein sulavasti.
