@@ -123,7 +123,7 @@ class TestLevel(unittest.TestCase):
 
         self.level.check_damage()
 
-        self.assertEqual(self.level.player.health, 2)
+        self.assertEqual(self.level.player.health, 4)
 
     @patch("pygame.sprite.spritecollide")
     def test_check_damage_doesnt_lower_health_if_no_collision(self, mock_spritecollide):
@@ -131,15 +131,14 @@ class TestLevel(unittest.TestCase):
 
         self.level.check_damage()
 
-        self.assertEqual(self.level.player.health, 3)
+        self.assertEqual(self.level.player.health, 5)
 
     @patch("pygame.sprite.spritecollide")
     def test_check_damage_returns_true_if_zero_health(self, mock_spritecollide):
         mock_collision = MagicMock()
         mock_spritecollide.return_value = [mock_collision]
 
-        self.level.check_damage()
-        self.level.check_damage()
-        self.level.check_damage()
+        for i in range(5):
+            self.level.check_damage()
 
         self.assertTrue(self.level.check_damage())
