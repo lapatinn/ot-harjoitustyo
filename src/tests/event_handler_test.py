@@ -1,10 +1,9 @@
 import unittest
-from unittest.mock import MagicMock, patch, ANY
+from unittest.mock import MagicMock, patch
 import pygame
 from event_handler import GameEventHandler, MenuEventHandler
 from sprites.player import Player
 from sprites.platforms import Floor
-from config import ACC, SCREEN_WIDTH, SCREEN_HEIGHT
 
 
 class TestGameEventHandler(unittest.TestCase):

@@ -2,7 +2,7 @@ import pygame
 from config import SCREEN_WIDTH, SCREEN_HEIGHT, ACC, FRIC, JUMP_FORCE
 
 pygame.init()
-vec = pygame.math.Vector2
+Vec = pygame.math.Vector2
 
 
 class Player(pygame.sprite.Sprite):
@@ -27,10 +27,10 @@ class Player(pygame.sprite.Sprite):
         self.rect = self.surface.get_rect(
             midbottom=(SCREEN_WIDTH//2, SCREEN_HEIGHT - 30))
 
-        self.pos = vec((SCREEN_WIDTH - self.rect.width,
+        self.pos = Vec((SCREEN_WIDTH - self.rect.width,
                        SCREEN_HEIGHT - 30))
-        self.vel = vec(0, 0)
-        self.acc = vec(0, 0)
+        self.vel = Vec(0, 0)
+        self.acc = Vec(0, 0)
 
         self.jumping = False
 
@@ -42,7 +42,7 @@ class Player(pygame.sprite.Sprite):
     def move(self):
         """Checks player movement direction, controls player position with acceleration."""
 
-        self.acc = vec(0, 0.5)
+        self.acc = Vec(0, 0.5)
 
         if self.moveright:
             self.acc.x = ACC
@@ -89,23 +89,23 @@ class Player(pygame.sprite.Sprite):
         if self.jumping:
             self.vel.y = max(self.vel.y, -3)
 
-    def change_direction(self, dir):
+    def change_direction(self, direction):
         """Changes direction of player movement according to variable,
         which is accessed by GameEventHandler."""
 
-        if dir == "left":
+        if direction == "left":
             self.moveleft = True
-        if dir == "right":
+        if direction == "right":
             self.moveright = True
-        if dir == "cancel_right":
+        if direction == "cancel_right":
             self.moveright = False
-        if dir == "cancel_left":
+        if direction == "cancel_left":
             self.moveleft = False
 
     def reset_pos(self):
         """Resets player position when new level is loaded."""
 
-        self.pos = vec((SCREEN_WIDTH - self.rect.width,
+        self.pos = Vec((SCREEN_WIDTH - self.rect.width,
                        SCREEN_HEIGHT - 30))
 
     def get_health_str(self):

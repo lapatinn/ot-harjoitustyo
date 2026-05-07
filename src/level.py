@@ -38,10 +38,10 @@ class Level:
 
         level_data = self.get_level_data()
 
-        for dict in level_data["platforms"]:
+        for plat in level_data["platforms"]:
 
-            x = dict["plat_x"]
-            y = dict["plat_y"]
+            x = plat["plat_x"]
+            y = plat["plat_y"]
 
             platform = Platform(x, y)
             self.platforms.add(platform)
@@ -62,8 +62,8 @@ class Level:
             self.rocket.add(rocket)
 
         if "spikes" in level_data:
-            for dict in level_data["spikes"]:
-                spike = Spike(dict["spike_x"], dict["spike_y"])
+            for spike in level_data["spikes"]:
+                spike = Spike(spike["spike_x"], spike["spike_y"])
 
                 self.spikes.add(spike)
                 self.all_sprites.add(spike)
@@ -82,7 +82,7 @@ class Level:
         Returns:
             level_data: Dict containing coordinates for objects to be loaded into groups."""
 
-        with open(f"src/levels/level_{str(self.level_id)}.json") as f:
+        with open(f"src/levels/level_{str(self.level_id)}.json", encoding="utf-8") as f:
             level_data = json.load(f)
 
         return level_data
