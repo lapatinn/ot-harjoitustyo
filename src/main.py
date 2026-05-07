@@ -32,6 +32,7 @@ def main():
         elif game_state == "victory":
             res = menu_loop(window, menu_events, "You won!", "Main menu")
             if res == "menu":
+                level, game_events, all_sprites, platforms = init_game()
                 game_state = "menu"
 
         elif game_state == "death":
