@@ -16,7 +16,7 @@ Peli on asennettu ja pelattu alusta loppuun seuraavilla käyttöjärjestelmillä
 
 - Cubbli linux
 - Arch linux
-- WSL (Windows subsystem for linux) Ubuntu (windows 11)
+- WSL Ubuntu (Windows subsystem for linux, Windows 11)
 - Helsingin yliopiston linux-etätyöasema
 
 Kyseisillä käyttöjärjestelmillä on myös suoritettu automatisoidut yksikkötestit ja generoitu kattavuusraportti.
