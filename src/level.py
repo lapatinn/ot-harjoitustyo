@@ -101,6 +101,7 @@ class Level:
                 self.level_id += 1
                 self.clear_groups()
                 self.generate()
+                self.player.reset_acc()
                 self.player.reset_pos()
                 return True
 

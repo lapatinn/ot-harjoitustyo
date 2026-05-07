@@ -37,7 +37,7 @@ class Player(pygame.sprite.Sprite):
         self.moveleft = False
         self.moveright = False
 
-        self.health = 3
+        self.health = 5
 
     def move(self):
         """Checks player movement direction, controls player position with acceleration."""
@@ -108,11 +108,18 @@ class Player(pygame.sprite.Sprite):
         self.pos = Vec((SCREEN_WIDTH - self.rect.width,
                        SCREEN_HEIGHT - 30))
 
+    def reset_acc(self):
+        """Stops player when new level is loaded"""
+
+        self.vel = Vec(0, 0)
+        self.acc = Vec(0, 0)
+
     def get_health_str(self):
         """Returns player health.
 
         Returns:
             Player health as string of *'s."""
+
         string = f"Health: {self.health * "* "}"
         return string
 
