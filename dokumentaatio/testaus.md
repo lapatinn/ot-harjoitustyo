@@ -21,4 +21,4 @@ Peli on asennettu ja pelattu alusta loppuun seuraavilla käyttöjärjestelmillä
 
 Kyseisillä käyttöjärjestelmillä on myös suoritettu automatisoidut yksikkötestit ja generoitu kattavuusraportti.
 
-Linux-etätyöasemalla (selainversio) pelin suorituskyky on huonompi kuin oikealla raudalla, mikä saattaa vaikuttaa pelikokemukseen negatiivisesti. Kaikilla muilla käyttöjärjestelmillä peli toimi oikein sulavasti.
+Linux-etätyöasemalla (selainversio) pelaaminen saattaa tuntua hieman kömpelöltä, koska peli pyörii hieman hitaammin. Tämä johtunee selaimesta? Varsinaisella Horizon-clientillä peliä ei ole testattu, kenties suorituskyky olisi siellä parempi? Kuitenkin kaikilla ei-virtuaalisilla käyttöjärjestelmillä peli pyörii kuten pitääkin.
