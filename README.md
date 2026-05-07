@@ -4,7 +4,7 @@ Aineopintojen harjoitustyö, ohjelmistotekniikka
 
 ## Portal Bob
 
-Tasohyppelypeli **pygame-kirjastolla**, jossa pieni vihreä ukkeli (Bob) seikkailee avaruudessa. Tarkoituksena on hyppiä platformien päällä osumatta *kammottaviin piikkipalloihin* ja kerätä mahdollisimman paljon kolikoita. Pelaajalla on aluksi tietty määrä elämiä, jotka vähenevät törmätessä piikkeihin. Pelaaja voi voittaa pelin pakenemalla viimeisellä kentällä sijaitsevaan rakettiin. Pelin tasot muuttuvat vaikeammiksi pelaajan edetessä.
+Tasohyppelypeli **pygame-kirjastolla**, jossa pieni vihreä ukkeli (Bob) seikkailee avaruudessa. Tarkoituksena on hyppiä platformien päällä osumatta *kammottaviin piikkipalloihin*. Pelaajalla on aluksi 5 elämää, jotka vähenevät törmätessä piikkeihin. Pelaaja voi voittaa pelin pakenemalla viimeisellä kentällä sijaitsevaan rakettiin. Pelin tasot muuttuvat vaikeammiksi pelaajan edetessä.
 
 ## Linkit
 
