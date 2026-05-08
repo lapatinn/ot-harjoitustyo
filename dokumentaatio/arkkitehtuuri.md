@@ -135,4 +135,4 @@ Pelin päättyminen pelaajan kuolemaan tai voittoon tapahtuu samankaltaisella lo
 
 ### Peliin jääneet heikkoudet / riittämättömyydet
 
-Pelaajan liike ei tällä hetkellä pysähdy siirtyessä tasolta toiselle, mikä saattaa vaikeuttaa pelaamista hieman. Lisäksi piikkien hitboxeilla ei ole tyhjää tilaa, eli törmääminen triggeröityy agressiivisesti ja saattaa myös vaikeuttaa peliä. 
+Pelaajan liike tasojen välillä tapahtuu hyvin nopeasti, vaikka pelaajan kiihtyvyys nollaantuu kulkiessa portaalin läpi. Tämä saattaa aiheuttaa tarkoituksettomia epäonnistumisia, jos pelaaja pitää liikenappulaa pohjassa siirtyessä tasolta toiselle. Lisäksi piikkien hitboxien ympärillä ei ole tyhjää tilaa, eli törmääminen triggeröityy suhteellisen agressiivisesti ja saattaa myös vaikeuttaa peliä hieman. 
