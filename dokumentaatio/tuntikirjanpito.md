@@ -22,4 +22,6 @@
 | 29.04 | 0.5  | Pylint virheiden korjailua |
 | 05.05 | 1    | Pylint virheiden korjailua, pieni muutos hakemistorakenteeseen, dokumentaation päivittelyä |
 | 06.05 | 2    | Dokumentaation päivittelyä (arkkitehtuurikuvauksen kaaviot ja selitykset), testien korjailua ja kirjoittelua |
-| Yhteensä   | 41.5  | | 
+| 07.05 | 2    | Bugikorjaus, testien korjaus, pylint virheiden korjaus, testausdokumentti, dokumentaation viimeistely |
+| 08.05 | 0.5  | Projektin viimeistely, lopullinen release |
+| Yhteensä   | 44  | | 
