@@ -25,6 +25,6 @@ Linux-etätyöasemalla (selainversio) pelaaminen saattaa tuntua hieman kömpelö
 
 ### Ohjelmaan jääneet riittämättömdyydet
 
-Ohjelma saa pylint arvosanaksi 9.75, mutta "Either all return-statements should return and expression or none of them should"-virheitä on useampi. Virheiden korjaaminen toisi koodiin mielestäni ei-toivottua monimutkaisuutta. 
+Ohjelma saa pylint arvosanaksi 9.75, mutta "Either all return-statements should return an expression or none of them should"-virheitä on useampi. Virheiden korjaaminen toisi koodiin mielestäni ei-toivottua monimutkaisuutta. 
 
 Main.py:n pääsilmukka on ehkä turhan laaja ja toteutettu ilman varsinaista luokkaa. Luokan luominen mahdollistaisi silmukan testaamisen, mutta en tässä vaiheessa koe sitä absoluuttisen välttämättömäksi, sillä ohjelman toiminnan kannalta oleellisimmat luokat tulevat testatuiksi.
